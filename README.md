@@ -31,7 +31,6 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 ## Examples
 
 #### Rotate (linear) 
-
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_18.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_25.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_10.jpg)
@@ -41,64 +40,64 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_04.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_03.jpg)
 
-Rotate (linear) + Opacity (random)
+#### Rotate (linear) + Opacity (random)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_11.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_31.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_13.jpg)
 
-Rotate (linear) + Scale (linear)
+#### Rotate (linear) + Scale (linear)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_22.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_34.jpg)
 
-Rotate (linear) + Scale (sinusoidal)
+#### Rotate (linear) + Scale (sinusoidal)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_06.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_05.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_12.jpg)
 
-Rotate (random) + Scale (random)
+#### Rotate (random) + Scale (random)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_19.jpg)
 
-Rotate (sinusoidal) + Scale (sinusoidal)
+#### Rotate (sinusoidal) + Scale (sinusoidal)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_20.jpg)
 
-Rotate (sinusoidal) + Scale (sinusoidal) + Opacity (random)
+#### Rotate (sinusoidal) + Scale (sinusoidal) + Opacity (random)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_14.jpg)
 
-Rotate (sinusoidal) + Scale (linear) + Opacity (Fade to 0)
+#### Rotate (sinusoidal) + Scale (linear) + Opacity (Fade to 0)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_16.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_23.jpg)
 
-Rotate (linear) + Scale (linear) + Opacity (Fade to 0)
+#### Rotate (linear) + Scale (linear) + Opacity (Fade to 0)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_01.jpg)
 
-Rotate (random) + Scale (random) + Opacity (random)
+#### Rotate (random) + Scale (random) + Opacity (random)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_29.jpg)
 
-Rotate (linear) + Scale (sinusoidal) + Opacity (random)
+#### Rotate (linear) + Scale (sinusoidal) + Opacity (random)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_33.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_27.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_32.jpg)
 
-Rotate (linear) + Move (horizontal)
+#### Rotate (linear) + Move (horizontal)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_07.jpg)
 
-Rotate (linear) + Move (vertical)
+#### Rotate (linear) + Move (vertical)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_08.jpg)
 
-Rotate (linear) + Move (diagonal)
+#### Rotate (linear) + Move (diagonal)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_09.jpg)
 
-Rotate (random) + Move (random) + Opacity (random)
+#### Rotate (random) + Move (random) + Opacity (random)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_17.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_24.jpg)
 
-Move (vertical) + Opacity (Fade to 0)
+#### Move (vertical) + Opacity (Fade to 0)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_15.jpg)
 
-Move (vertical) + Scale (linear) + Opacity (Fade to 0)
+#### Move (vertical) + Scale (linear) + Opacity (Fade to 0)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_21.jpg)
 
-Move (horizontal + vertical)
+#### Move (horizontal + vertical)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_28.jpg)
 
 ## Thanks
