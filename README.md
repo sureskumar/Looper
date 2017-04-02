@@ -107,6 +107,11 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 * [Siddhartha Gudipati](https://github.com/websiddu)
 
 
+## Contact me
+
+Email sures.srinivasan@gmail.com
+Feel free to contact me for any suggestions or critique.
+
 ## Links
 
 [Project website](http://www.sureskumar.com/looper) | [My portfolio](http://www.sureskumar.com) | [Twitter](https://twitter.com/sureskumar)
