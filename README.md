@@ -40,6 +40,8 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 ## Examples
 ![Looper example](http://www.sureskumar.com/looper/imgs/test_sketch.png)
 
+![Looper example](http://www.sureskumar.com/looper/imgs/test_sketch.png)
+
 ## Thanks
 
 * [Harish Sivaramakrishnan](https://github.com/harish-io)
