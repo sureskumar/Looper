@@ -28,13 +28,27 @@ Selected group or layer can be scaled by absolute value (px), proportional value
 Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 
 1. [Download the ZIP file of this repository](https://github.com/sureskumar/Looper/archive/master.zip)
-2. Double click on `<name>.sketchplugin`
+2. Double click on `Looper.sketchplugin`
 
 ## Examples
 
-Simple rotate
-![Looper example](http://www.sureskumar.com/looper/imgs/test_sketch.png)
-![Looper example](http://www.sureskumar.com/looper/imgs/test_sketch.png)
+Simple rotate (linear) 
+
+Rotate (sinusoidal)
+![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_04.jpg)
+![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_03.jpg)
+
+Rotate (linear) + Opacity (linear)
+
+Rotate (linear) + Scale (linear)
+
+Rotate (linear) + Scale (sinusoidal)
+![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_05.jpg)
+
+Rotate (linear) + Scale (linear) + Opacity (Fade to 0)
+![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_01.jpg)
+
+Rotate (sinusoidal) + Opacity (linear)
 
 ## Thanks
 

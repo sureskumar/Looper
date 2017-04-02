@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Looper</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row-panel">
+        <div class="settings-panel">
+          <div class="block">
+            <div class="block__content">
+
+              <div class="form_cont">
+                    <div class="form-field-label">Duplication count</div>
+                    
+                    <label class="mdl-checkbox mdl-js-checkbox" for="input_count_toggle" id="input_count_toggle_lbl">
+                      <input type="checkbox" id="input_count_toggle" class="mdl-checkbox__input">
+                      <span class="mdl-checkbox__label checkbox_width">Automatic</span>
+                      <span class="muted small"><br/>Calculate duplication count based on the rotation angle to form a complete circle</span>
+                      <span class="vertical_20"></span>
+                    </label>
+                    
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_count_txt_div">
+                      <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_count_txt" value="10">
+                      <label class="mdl-textfield__label" for="input_count_txt">Duplication count</label>
+                    </div>
+
+              </div>
+
+              <div class="form_cont">
+
+                    <div class="form-field-label">Scale</div>
+                    
+                    <label class="mdl-checkbox mdl-js-checkbox" for="input_scale_toggle">
+                      <input type="checkbox" id="input_scale_toggle" class="mdl-checkbox__input" >
+                      <span class="mdl-checkbox__label checkbox_width">Scale selection</span>
+                      <span class="vertical_20"></span>
+                    </label>
+
+                    <div id="input_scale_controls">
+
+                        <!--  
+                        <label class="mdl-checkbox mdl-js-checkbox" for="input_angle_checkbox_2">
+                          <input type="checkbox" id="input_angle_checkbox_2" class="mdl-checkbox__input" checked>
+                          <span class="mdl-checkbox__label">Center layer while scaling</span>
+                        </label>
+                        -->
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
+                            <input class="mdl-textfield__input" type="text" id="input_scale_dropdown" value="Pixels" readonly tabIndex="-1">
+                            <label for="input_scale_dropdown">
+                                <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                            </label>
+                            <label for="input_scale_dropdown" class="mdl-textfield__label">Increment by</label>
+                            <ul for="input_scale_dropdown" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                <li class="mdl-menu__item" data-val="DE">Pixels</li>
+                                <li class="mdl-menu__item" data-val="BY">Percentage</li>
+                                <li class="mdl-menu__item" data-val="RU">Randomly</li>
+                            </ul>
+                        </div>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_scale_txt_1_div">
+                          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_scale_txt_1" value="5">
+                          <label class="mdl-textfield__label" for="input_scale_txt_1">Increment by (px)</label>
+                        </div>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_scale_txt_2_div">
+                          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_scale_txt_2" value="1.1">
+                          <label class="mdl-textfield__label" for="input_scale_txt_2">Increment by (%)</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_scale_txt_3_div">
+                          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_scale_txt_3" value="5">
+                          <label class="mdl-textfield__label" for="input_scale_txt_3">Randomize by +/- (px)</label>
+                        </div>
+
+                    </div>
+
+              </div>
+
+
+
+              <div class="form_cont">
+
+                    <div class="form-field-label">Opacity</div>
+                    
+                    <label class="mdl-checkbox mdl-js-checkbox" for="input_opacity_toggle">
+                      <input type="checkbox" id="input_opacity_toggle" class="mdl-checkbox__input" >
+                      <span class="mdl-checkbox__label checkbox_width">Change opacity</span>
+                      <span class="vertical_20"></span>
+                    </label>
+
+                    <div id="input_opacity_controls">
+                    
+                        <div class="form-field">
+                              <label class="mdl-radio mdl-js-radio" for="input_opacity_1">
+                                <input checked class="mdl-radio__button" id="input_opacity_1" name="opacity_radio" type="radio" value='0'>
+                                <span class="mdl-radio__label">Randomly</span>
+                              </label>
+
+                              <label class="mdl-radio mdl-js-radio" for="input_opacity_2">
+                                <input class="mdl-radio__button" id="input_opacity_2" name="opacity_radio" type="radio" value="1">
+                                <span class="mdl-radio__label">Increase opacity from 0 to 100</span>
+                              </label>
+
+                              <label class="mdl-radio mdl-js-radio" for="input_opacity_3">
+                                <input class="mdl-radio__button" id="input_opacity_3" name="opacity_radio" type="radio" value="2">
+                                <span class="mdl-radio__label">Decrease opacity from 100 to 0</span>
+                              </label>
+                        </div>
+
+                    </div>
+
+              </div>
+
+            
+              
+            </div>
+          </div>
+
+        </div>
+ 
+        <div class="settings-panel1">
+          <div class="block">
+            <div class="block__content">
+
+                  <div class="form-field form_cont">
+                
+                        <div class="form-field-label">Rotate</div>
+                        
+                        <label class="mdl-checkbox mdl-js-checkbox" for="input_angle_checkbox_1">
+                          <input type="checkbox" id="input_angle_checkbox_1" class="mdl-checkbox__input" checked>
+                          <span class="mdl-checkbox__label">Rotate selection</span>
+                        </label>
+                        
+                        <div id="input_angle_controls">
+                              
+                              <label class="mdl-checkbox mdl-js-checkbox" for="input_angle_checkbox_3" id="input_angle_checkbox_3_lbl">
+                                <input type="checkbox" id="input_angle_checkbox_3" class="mdl-checkbox__input">
+                                <span class="mdl-checkbox__label">Automatic</span>
+                                <span class="muted small"><br/>Calculate rotation angle based on the duplication count to form a complete circle</span>
+                              </label>
+
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_angle_txt_div">
+                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_angle_txt" value="36">
+                                <label class="mdl-textfield__label" for="input_angle_txt">Rotation angle</label>
+                              </div>
+                            
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
+                                  <input class="mdl-textfield__input" type="text" id="input_angle_dropdown_1" value="Linear" readonly tabIndex="-1">
+                                  <label for="input_angle_dropdown_1">
+                                      <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                                  </label>
+                                  <label for="input_angle_dropdown_1" class="mdl-textfield__label">Rotation increment</label>
+                                  <ul for="input_angle_dropdown_1" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                      <li class="mdl-menu__item" data-val="DE">Linear</li>
+                                      <li class="mdl-menu__item" data-val="BY">Sinusoidal</li>
+                                      <li class="mdl-menu__item" data-val="RU">Random</li>
+                                  </ul>
+                              </div>
+
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_angle_sin_div">
+                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_angle_sin_val" value="5">
+                                <label class="mdl-textfield__label" for="input_angle_sin_val">Sin Factor</label>
+                              </div>
+
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_angle_rnd_div">
+                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_angle_rnd_val" value="5">
+                                <label class="mdl-textfield__label" for="input_angle_rnd_val">Randomize by +/- (px)</label>
+                              </div>
+
+                        </div>
+
+                  </div>
+
+
+
+                  <div class="form_cont">
+
+                        <div class="form-field-label">Move</div>
+                        
+                        <label class="mdl-checkbox mdl-js-checkbox" for="input_move_toggle">
+                          <input type="checkbox" id="input_move_toggle" class="mdl-checkbox__input" >
+                          <span class="mdl-checkbox__label checkbox_width">Move selection</span>
+                          <span class="vertical_20"></span>
+                        </label>
+
+                        <div id="input_move_controls">
+                        
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
+                                <input class="mdl-textfield__input" type="text" id="input_move_dropdown" value="Horizontally" readonly tabIndex="-1">
+                                <label for="input_move_dropdown">
+                                    <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                                </label>
+                                <label for="input_move_dropdown" class="mdl-textfield__label">Direction</label>
+                                <ul for="input_move_dropdown" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                    <li class="mdl-menu__item" data-val="DE">Horizontally</li>
+                                    <li class="mdl-menu__item" data-val="BY">Vertically</li>
+                                    <li class="mdl-menu__item" data-val="RU">Diagonally</li>
+                                    <li class="mdl-menu__item" data-val="RU">Randomly</li>
+                                </ul>
+                            </div>
+
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_move_txt_1_div">
+                              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_move_txt_1" value="20">
+                              <label class="mdl-textfield__label" for="input_move_txt_1">Increment by</label>
+                            </div>
+
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_move_txt_2_div">
+                              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_move_txt_2" value="500">
+                              <label class="mdl-textfield__label" for="input_move_txt_2">Width</label>
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_move_txt_3_div">
+                              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_move_txt_3" value="500">
+                              <label class="mdl-textfield__label" for="input_move_txt_3">Height</label>
+                            </div>
+
+                        </div>
+
+                  </div>
+                  
+
+            </div>
+          </div>
+        </div>
+
+
+          <div class="block__footer">
+            <div class="actions is-pulled-right">
+              <button id="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Loop</button>
+            </div>
+          </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="assets/js/components/analytics.js"></script>
+  <script>
+    ga('send', 'pageview', 'table');
+  </script>
+  <script type="text/javascript" src="assets/js/lib/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="assets/js/lib/material.min.js"></script>
+  <script type="text/javascript" src="assets/js/lib/getmdl-select.min.js"></script>
+  <script type="text/javascript" src="assets/js/lib/handsontable.js"></script>
+  <script type="text/javascript" src="assets/js/common.js"></script>
+  <script type="text/javascript" src="assets/js/components/table.js"></script>
+  <script>
+  "use strict";window.onload=function(){getmdlSelect.init(".getmdl-select"),document.addEventListener("DOMNodeInserted",function(e){e.relatedNode.querySelectorAll(".getmdl-select").length>0&&componentHandler.upgradeDom()},!1)};var getmdlSelect={defaultValue:{width:300},addEventListeners:function(e){var t=e.querySelector("input"),n=e.querySelectorAll("li"),l=e.querySelector(".mdl-js-menu");t.onkeydown=function(e){38!=e.keyCode&&40!=e.keyCode||l.MaterialMenu.show()},l.onkeydown=function(e){13==e.keyCode&&t.focus()},[].forEach.call(n,function(n){n.onclick=function(){if(t.value=n.textContent,e.MaterialTextfield.change(n.textContent),setTimeout(function(){e.MaterialTextfield.updateClasses_()},250),t.dataset.val=n.dataset.val||"","createEvent"in document){var o=document.createEvent("HTMLEvents");o.initEvent("change",!1,!0),l.MaterialMenu.hide(),t.dispatchEvent(o)}else t.fireEvent("onchange")}})},init:function(e,t){var n=document.querySelectorAll(e);[].forEach.call(n,function(e){getmdlSelect.addEventListeners(e);var n=t?t:e.querySelector(".mdl-menu").offsetWidth?e.querySelector(".mdl-menu").offsetWidth:getmdlSelect.defaultValue.width;e.style.width=n+"px"})}};
+//# sourceMappingURL=getmdl-select.min.js.map
+  </script>
+</body>
+
+
+
+</html>
