@@ -110,7 +110,6 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 ## Contact me
 
 Email sures.srinivasan@gmail.com
-
 Feel free to contact me for any suggestions or critique.
 
 ## Links
