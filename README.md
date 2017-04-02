@@ -27,7 +27,7 @@ Selected group or layer can be scaled by absolute value (px), proportional value
 
 Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 
-1. [Download the ZIP file of this repository](https://github.com/bouchenoiremarc/Sketch-Constraints/archive/master.zip)
+1. [Download the ZIP file of this repository](https://github.com/sureskumar/Looper/archive/master.zip)
 2. Double click on `<name>.sketchplugin`
 
 
@@ -51,4 +51,6 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 
 ## Links
 
-[Looper - Project page](http://www.sureskumar.com/looper) | [My portfolio](http://www.sureskumar.com) | [Twitter](https://twitter.com/sureskumar)
+<a href="http://www.sureskumar.com/looper" target="_blank">Project website</a>
+
+[Project website](http://www.sureskumar.com/looper) | [My portfolio](http://www.sureskumar.com) | [Twitter](https://twitter.com/sureskumar)
