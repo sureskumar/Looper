@@ -4,8 +4,6 @@ Looper is a sketch plugin that helps automate duplication of groups and layers. 
 
 ## Loop `⌘ + L`
 
-![Looper example](test.gif)
-
 ### Duplication count
 Duplicate selected group or layer by providing the duplication count or Looper can automatically calculate the count based on the rotation angle to form a complete circle.
 
@@ -32,13 +30,14 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 
 ## Examples
 
-Rotate (linear) 
+#### Rotate (linear) 
+
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_18.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_25.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_10.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_26.jpg)
 
-Rotate (random)
+#### Rotate (random)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_04.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_03.jpg)
 
@@ -46,7 +45,6 @@ Rotate (linear) + Opacity (random)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_11.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_31.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_13.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_30.jpg)
 
 Rotate (linear) + Scale (linear)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_22.jpg)
@@ -94,7 +92,7 @@ Rotate (random) + Move (random) + Opacity (random)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_17.jpg)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_24.jpg)
 
-Move (vertical) + Opacity Fade to 0)
+Move (vertical) + Opacity (Fade to 0)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_15.jpg)
 
 Move (vertical) + Scale (linear) + Opacity (Fade to 0)
