@@ -51,6 +51,4 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 
 ## Links
 
-<a href="http://www.sureskumar.com/looper" target="_blank">Project website</a>
-
-[Project website](http://www.sureskumar.com/looper) | [My portfolio](http://www.sureskumar.com) | [Twitter](https://twitter.com/sureskumar)
+[Project website](http://www.sureskumar.com/looper){:target="_blank"} | [My portfolio](http://www.sureskumar.com) | [Twitter](https://twitter.com/sureskumar)
