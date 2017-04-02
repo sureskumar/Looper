@@ -30,16 +30,10 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 1. [Download the ZIP file of this repository](https://github.com/sureskumar/Looper/archive/master.zip)
 2. Double click on `<name>.sketchplugin`
 
-
-
-## Demo
-
-[![Demo Video](screen.png)](http://www.youtube.com/watch?v=ZJCYUCU7YxQ)
-[Watch on Vimeo](https://vimeo.com/140962822)
-
 ## Examples
-![Looper example](http://www.sureskumar.com/looper/imgs/test_sketch.png)
 
+Simple rotate
+![Looper example](http://www.sureskumar.com/looper/imgs/test_sketch.png)
 ![Looper example](http://www.sureskumar.com/looper/imgs/test_sketch.png)
 
 ## Thanks
@@ -51,4 +45,4 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 
 ## Links
 
-[Project website](http://www.sureskumar.com/looper){:target="_blank"} | [My portfolio](http://www.sureskumar.com) | [Twitter](https://twitter.com/sureskumar)
+[Project website](http://www.sureskumar.com/looper) | [My portfolio](http://www.sureskumar.com) | [Twitter](https://twitter.com/sureskumar)
