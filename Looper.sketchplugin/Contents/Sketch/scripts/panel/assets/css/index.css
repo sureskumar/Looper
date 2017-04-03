@@ -3599,8 +3599,8 @@ fieldset[disabled] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple,
   letter-spacing: 0;
   text-decoration: none;
   cursor: pointer;
-  height: 48px;
-  line-height: 48px;
+  height: 34px;
+  line-height: 33px;
   white-space: nowrap;
   opacity: 0;
   transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -7800,7 +7800,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 16px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   -webkit-user-select: none;
 }
@@ -8178,7 +8178,7 @@ div.tagsinput div {
 .vertical_20{
   
 }
-.getmdl-select .mdl-icon-toggle__label{float:right;margin-top:-30px;color:rgba(0,0,0,0.4)}.getmdl-select.is-focused .mdl-icon-toggle__label{color:#3f51b5}.getmdl-select .mdl-menu__container{width:100% !important;overflow:hidden}.getmdl-select .mdl-menu__container .mdl-menu .mdl-menu__item{font-size:16px}.getmdl-select__fullwidth .mdl-menu{width:100%}.getmdl-select__fix-height .mdl-menu__container{overflow-y:auto;max-height:300px !important}
+.getmdl-select .mdl-icon-toggle__label{float:right;margin-top:-30px;color:rgba(0,0,0,0.4)}.getmdl-select.is-focused .mdl-icon-toggle__label{color:#3f51b5}.getmdl-select .mdl-menu__container{width:100% !important;overflow:hidden}.getmdl-select .mdl-menu__container .mdl-menu .mdl-menu__item{font-size:16px}.getmdl-select__fullwidth .mdl-menu{width:100%}.getmdl-select__fix-height .mdl-menu__container{overflow-y:auto;max-height:164px !important}
 .form_cont{
   border: 1px solid #f5f5f5;
   border-radius: 3px;
@@ -8189,4 +8189,21 @@ div.tagsinput div {
 }
 #input_opacity_controls {
   margin-top: 12px;
+}
+.recom {
+  font-size: 12px;
+  color: rgba(0,0,0,0.34);
+  position: relative;
+  top: -10px;
+}
+.recom1 {
+  font-size: 12px;
+  color: rgba(0,0,0,0.34);
+  position: relative;
+}
+.move_up {
+  margin-top: -20px;
+}
+.vertical_20a {
+  margin-top: 10px;
 }

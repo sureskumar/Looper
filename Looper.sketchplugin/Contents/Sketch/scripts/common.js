@@ -477,6 +477,7 @@ MD["Pattern"] = function()
       log("scale_px: "+scale_px);
 
       scale_pr = MD.configs.table.send_scale_pr;
+      scale_pr = scale_pr / 100;
       log("scale_pr: "+scale_pr);
 
       scale_rnd = MD.configs.table.send_scale_rnd;
