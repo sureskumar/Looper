@@ -66,21 +66,28 @@
                             </ul>
                         </div>
 
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_scale_txt_1_div">
-                          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_scale_txt_1" value="5">
-                          <label class="mdl-textfield__label" for="input_scale_txt_1">Increment by (px)</label>
-                          <span class="recom1">Recommended range: 5-20</span>
+                        <div id="input_scale_txt_1_div">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_scale_txt_1" value="5">
+                              <label class="mdl-textfield__label" for="input_scale_txt_1">Increment by (px)</label>
+                            </div>
+                            <span class="recom">Recommended range: 5-20</span>
                         </div>
 
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_scale_txt_2_div">
-                          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_scale_txt_2" value="102">
-                          <label class="mdl-textfield__label" for="input_scale_txt_2">Increment by (%)</label>
-                          <span class="recom1">Recommended range: 50-130</span>
+                        <div id="input_scale_txt_2_div">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_scale_txt_2" value="102">
+                              <label class="mdl-textfield__label" for="input_scale_txt_2">Increment by (%)</label>
+                            </div>
+                            <span class="recom">Recommended range: 50-130</span>
                         </div>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_scale_txt_3_div">
-                          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_scale_txt_3" value="5">
-                          <label class="mdl-textfield__label" for="input_scale_txt_3">Randomize by +/- (px)</label>
-                          <span class="recom1">Recommended range: 5-20</span>
+
+                        <div id="input_scale_txt_3_div">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_scale_txt_3" value="5">
+                              <label class="mdl-textfield__label" for="input_scale_txt_3">Randomize by +/- (px)</label>
+                            </div>
+                            <span class="recom">Recommended range: 5-20</span>
                         </div>
 
                     </div>
@@ -116,10 +123,12 @@
                             </ul>
                         </div>
 
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_move_txt_1_div">
-                          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_move_txt_1" value="20">
-                          <label class="mdl-textfield__label" for="input_move_txt_1">Increment by (px)</label>
-                          <span class="recom1">Recommended range: 1-500</span>
+                        <div id="input_move_txt_1_div">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_move_txt_1" value="20">
+                              <label class="mdl-textfield__label" for="input_move_txt_1">Increment by (px)</label>
+                            </div>
+                            <span class="recom">Recommended range: 1-500</span>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_move_txt_2_div">
@@ -177,13 +186,14 @@
                                 <span class="muted small"><br/>Calculate rotation angle based on the duplication count to form a complete circle</span>
                               </label>
                               -->
-
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_angle_txt_div">
-                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_angle_txt" value="4">
-                                <label class="mdl-textfield__label" for="input_angle_txt">Rotation angle</label>
-                                <span class="recom1">Recommended range: 1-359</span>
+                              <div id="input_angle_txt_div">
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_angle_txt" value="4">
+                                    <label class="mdl-textfield__label" for="input_angle_txt">Rotation angle</label>
+                                  </div>
+                                  <span class="recom">Recommended range: 1-359</span>
                               </div>
-                            
+
                               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" id="rot_perf">
                                   <input class="mdl-textfield__input" type="text" id="input_angle_dropdown_1" value="Linear" readonly tabIndex="-1">
                                   <label for="input_angle_dropdown_1">
@@ -197,16 +207,20 @@
                                   </ul>
                               </div>
 
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_angle_sin_div">
-                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_angle_sin_val" value="5">
-                                <label class="mdl-textfield__label" for="input_angle_sin_val">Sin Factor</label>
-                                <span class="recom1">Recommended range: 5-20</span>
+                              <div id="input_angle_sin_div">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_angle_sin_val" value="5">
+                                  <label class="mdl-textfield__label" for="input_angle_sin_val">Sin Factor</label>
+                                </div>
+                                <span class="recom">Recommended range: 5-20</span>
                               </div>
 
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="input_angle_rnd_div">
-                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_angle_rnd_val" value="5">
-                                <label class="mdl-textfield__label" for="input_angle_rnd_val">Randomize by +/- (px)</label>
-                                <span class="recom1">Recommended range: 5-20</span>
+                              <div id="input_angle_rnd_div">
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="input_angle_rnd_val" value="5">
+                                    <label class="mdl-textfield__label" for="input_angle_rnd_val">Randomize by +/- (px)</label>
+                                  </div>
+                                  <span class="recom">Recommended range: 5-20</span>
                               </div>
 
                         </div>
