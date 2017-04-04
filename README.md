@@ -3,9 +3,10 @@
 Looper is a sketch plugin that helps automate duplication of groups and layers. One can control properties like Rotate, Scale and Opacity while duplicating. This powerful combination enables artists and designers to create interesting geometric and organic patterns.
 
 ![Looper banner](http://www.sureskumar.com/looper/github_imgs/banner.jpg)
-![Looper sample](http://www.sureskumar.com/looper/github_imgs/looper_example_16_exp.jpg)
 
 ## Loop `⌘ + L`
+
+![Looper banner](http://www.sureskumar.com/looper/github_imgs/looper.gif)
 
 ### Duplication count
 Duplicate selected group or layer by providing the duplication count or Looper can automatically calculate the count based on the rotation angle to form a complete circle.
@@ -32,6 +33,7 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 2. Double click on `Looper.sketchplugin`
 
 ## Examples
+![Looper sample](http://www.sureskumar.com/looper/github_imgs/looper_example_16_exp.jpg)
 
 #### Rotate (linear) 
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_18.jpg)
