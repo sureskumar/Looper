@@ -9,19 +9,19 @@ Looper is a sketch plugin that helps automate duplication of groups and layers. 
 ### Duplication count
 Duplicate selected group or layer by providing the duplication count or Looper can automatically calculate the count based on the rotation angle to form a complete circle.
 
+### Scale
+Selected group or layer can be scaled by absolute value (px), proportional value (%) or at random. 
+
+### Opacity
+Opacity of selected group or layer can be set to update at random, increase from 0 to 100 or decrease from 100 to 0.
+
 ### Rotate
 Rotate selected group or layer by providing a specific rotation angle or Looper can automatically calculate the angle required based on the duplication count to form a complete circle.
 
 Rotation angle can be incremented in a linear fashion, randomly or can be set to increment sinusoidally.
 
-### Opacity
-Opacity of selected group or layer can be set to update at random, increase from 0 to 100 or decrease from 100 to 0.
-
 ### Move
 Selected group or layer can be moved Horizontally, Vertically and Diagonally with a set increment value. Duplicated items can also be distributed randomly within a given dimension (width & height)
-
-### Scale
-Selected group or layer can be scaled by absolute value (px), proportional value (%) or at random. 
 
 ## Installation
 
