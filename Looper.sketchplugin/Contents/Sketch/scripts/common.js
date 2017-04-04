@@ -589,13 +589,16 @@ MD["Pattern"] = function()
                 case 1:
                     //Random
                     var r_temp = Math.floor(Math.random() * scale_rnd);
-                    if (loop%2 == 0) {
+                    log("scale_rnd: "+r_temp);
+                    //if (loop%2 == 0) {
                         newWidth = Math.floor(oldWidth + r_temp);
                         newHeight = Math.floor(oldHeight + r_temp);
+                    /*
                     } else {
                         newWidth = Math.floor(oldWidth - r_temp);
                         newHeight = Math.floor(oldHeight - r_temp);
                     }
+                    */
                     break;
                 case 2:
                     //Scale PX
@@ -664,6 +667,7 @@ MD["Pattern"] = function()
       */
 
       // ---- Add parameters as text layer in the group
+      /*
       var str = "Position (0-Center, 1-Corner, 2-Hori, 3-Vert, 4-Diagonal, 5-Random): "+position+"\n"+
       "Position Random Width (position_rnd_x): "+position_rnd_x+"\n"+
       "Position Random Height (position_rnd_y): "+position_rnd_y+"\n"+
@@ -682,7 +686,7 @@ MD["Pattern"] = function()
       "Scale_pr: "+scale_inc+"\n"+
       "-\n"+
       "Opacity (1-No, 2-Random, 3-0to1, 4-1to0): "+opacity+"\n";
-
+      */
       /*
       var txt = addText(str);
       txt.setName("Looper parameters");
