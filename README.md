@@ -23,12 +23,15 @@ Rotation angle can be incremented in a linear fashion, randomly or can be set to
 ### Move
 Selected group or layer can be moved Horizontally, Vertically and Diagonally with a set increment value. Duplicated items can also be distributed randomly within a given dimension (width & height)
 
-## Installation
+## Install manually
 
 Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 
 1. [Download the ZIP file of this repository](https://github.com/sureskumar/Looper/archive/master.zip)
 2. Double click on `Looper.sketchplugin`
+
+## Install from Sketchpacks
+[![Install Looper with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Looper with Sketchpacks")](https://sketchpacks.com/sureskumar/looper/install)
 
 ## Examples
 ![Looper sample](http://www.sureskumar.com/looper/github_imgs/looper_example_16_exp.jpg)
