@@ -371,7 +371,7 @@ MD["Pattern"] = function()
     {
        var execute_code = 1;
        if (selection.count() <= 0) {
-          MD.document.showMessage("Select a text layer to make button");
+          MD.document.showMessage("Select a text layer or group to duplicate. Cheers!");
           execute_code = 0;
         } else {
             for(var i = 0; i < selection.count(); i++){
