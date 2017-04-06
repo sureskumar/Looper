@@ -7803,6 +7803,12 @@ body {
   font-size: 20px;
   font-weight: 500;
   -webkit-user-select: none;
+  position: fixed;
+  top:0px;
+  width: 100%;
+  z-index: 9999;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
+
 }
 .muted {
   color: #888;
@@ -7816,8 +7822,12 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
+  overflow: auto;
 }
 .settings-panel {
+  position: absolute;
+  left: 0px;
+  top:0px;  
   height: 100vh;
   width: 300px;
   z-index: 100;
@@ -7864,13 +7874,14 @@ body {
 }
 .block__footer {
   position: fixed;
-  
+  background-color: #fff;
   right: 0;
   bottom: 0;
-  
+  box-shadow: 0 -1px 5px 0 rgba(0, 0, 0, 0.12);
   
   padding: 12px 12px;
   z-index: 1000;
+  width: 100%;
 }
 .form-field {
   margin-bottom: 16px;
@@ -8206,4 +8217,7 @@ div.tagsinput div {
 }
 .vertical_20a {
   margin-top: 10px;
+}
+.bottom_space {
+  height: 60px;
 }

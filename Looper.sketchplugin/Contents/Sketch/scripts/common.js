@@ -326,7 +326,7 @@ MD.extend({
     return this.MDPanel({
       url: this.pluginSketch + "/panel/table.html",
       width: 612,
-      height: 766,
+      height: 550,
       data: data,
       identifier: 'com.google.material.pattern',
       floatWindow: false,
