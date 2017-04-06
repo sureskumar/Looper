@@ -1,7 +1,7 @@
 {
 	"name": "Looper",
 	"identifier": "com.sureskumar.sketch.looper",
-	"version": "1.2.2",
+	"version": "1.2.3",
   	"compatibleVersion": "40.0",
 	"description": "Looper is a sketch plugin that helps automate duplication of groups and layers.",
 	"author": "Sures Kumar",
