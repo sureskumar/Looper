@@ -4,6 +4,12 @@ Looper is a sketch plugin that helps automate duplication of groups and layers. 
 
 ![Looper banner](http://www.sureskumar.com/looper/github_imgs/looper.gif)
 
+Please share what you create:
+Twitter: #builtwithlooper and/or @sureskumar
+[Email](mailto:sures.srinivasan@gmail.com)
+[Facebook page](https://www.facebook.com/loopersketch/)
+Cheers!
+
 ![Looper banner](http://www.sureskumar.com/looper/github_imgs/banner.jpg)
 
 ### Duplication count
