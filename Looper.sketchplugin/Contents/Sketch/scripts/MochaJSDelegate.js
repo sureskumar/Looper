@@ -45,7 +45,9 @@ var MochaJSDelegate = function(selectorHandlerDict){
 			while(match = regex.exec(selectorString)) args.push("arg"+args.length);
 
 			dynamicFunction = eval("(function("+args.join(",")+"){ return dynamicHandler.apply(this, arguments); })");
-
+			//delegateClassDesc.addInstanceMethodWithSelector_function_(selector, function() {
+			  //   func.apply(delegateClassDesc, arguments);
+			//});
 			delegateClassDesc.addInstanceMethodWithSelector_function_(selector, dynamicFunction);
 		}
 	};

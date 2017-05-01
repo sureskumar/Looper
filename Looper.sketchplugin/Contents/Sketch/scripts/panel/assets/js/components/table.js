@@ -1,6 +1,7 @@
 (function () {
 
   var _submit,
+    _close,
     send_loop,
     send_rotate_select,
     send_position,
@@ -16,6 +17,12 @@
     send_scale_px,
     send_scale_pr,
     send_scale_rnd;
+
+  _close = function () {
+    console.log("Close button pressed");
+    var options = {};
+    MDAction('closePanel', options);
+  }
 
   _submit = function () {
       
@@ -48,7 +55,7 @@
     //loop_auto = $('#input_count_toggle').is(':checked'); // Checkbox
     //console.log("loop_auto:"+loop_auto);
     loop = $('#input_count_txt').val().trim(); // Text box
-    //console.log("loop:"+loop);
+    console.log("loop:"+loop);
     
     rotate_select = $('#input_angle_checkbox_1').is(':checked'); // Checkbox
     //console.log("rotate_select:"+rotate_select);
@@ -76,15 +83,15 @@
     //console.log("opacity_3:"+opacity_3);
     
     move_select = $('#input_move_toggle').is(':checked'); // Checkbox
-    //console.log("move_select:"+move_select);
+    console.log("move_select:"+move_select);
     move_direction = $('#input_move_dropdown').val().trim(); // Dropdown
-    //console.log("move_direction:"+move_direction);    
+    console.log("move_direction:"+move_direction);    
     move_inc = $('#input_move_txt_1').val().trim(); // Text box
-    //console.log("move_inc:"+move_inc);
+    console.log("move_inc:"+move_inc);
     move_rnd_x = $('#input_move_txt_2').val().trim(); // Text box
-    //console.log("move_rnd_x:"+move_rnd_x);
+    console.log("move_rnd_x:"+move_rnd_x);
     move_rnd_y = $('#input_move_txt_3').val().trim(); // Text box
-    //console.log("move_rnd_y:"+move_rnd_y);
+    console.log("move_rnd_y:"+move_rnd_y);
 
     scale_selection = $('#input_scale_toggle').is(':checked'); // Checkbox
     //console.log("scale_selection:"+scale_selection);
@@ -97,6 +104,7 @@
     scale_rnd = $('#input_scale_txt_3').val().trim(); // Text box
     //console.log("scale_rnd:"+scale_rnd);
 
+    
 
     // Check if all txt input are numbers
     if(!isNaN(loop) && 
@@ -110,20 +118,10 @@
       !isNaN(scale_pr) && 
       !isNaN(scale_rnd)) {
           
-
-          //console.log("no error");
           var options = {};
           
           // Loop / Count
           options.send_loop = loop;
-          /*
-          if (loop_auto) {
-              options.send_loop = (360/rotate_angle)+1;   
-          } else {
-              options.send_loop = loop;
-          }
-          */
-
           
           // Rotate
           if (rotate_select) {
@@ -194,15 +192,6 @@
           options.send_move_rnd_x = move_rnd_x;
           options.send_move_rnd_y = move_rnd_y;
 
-          /*
-          if (rotate_center) {
-            options.send_position = 0;
-          } else {
-            options.send_position = 1;
-          }
-          */
-
-
           // Scale
           scale_px = Math.floor(scale_px);
           if (scale_px%2 == 0) {
@@ -232,7 +221,7 @@
           options.send_scale_pr = scale_pr;
           options.send_scale_rnd = scale_rnd;
 
-          ga('send', 'event', 'table panel', 'submit', 'tables');
+          //ga('send', 'event', 'table panel', 'submit', 'tables');
           MDAction('submit', options);
           
     }
@@ -243,9 +232,6 @@
   _toggleAngleEnbale = function () {
       if ($('#input_angle_checkbox_1').is(':checked')) {
         $('#input_angle_controls').fadeTo( "fast", 1.0 );
-        //$('#input_angle_checkbox_2').removeAttr('disabled'); // Enable - Rotate from center
-        //$('#input_angle_checkbox_3').removeAttr('disabled'); // Enable - Automatic
-        //$('#input_angle_txt').val("20");
         $('#input_angle_txt').removeAttr('disabled'); // Enable - Rotation angle
         $('#input_angle_dropdown_1').removeAttr('disabled'); // Enable - Rotation increment dropdown
 
@@ -253,12 +239,7 @@
         $('#input_angle_rnd_val').removeAttr('disabled'); // Enable - Rotation rnd
 
       } else {
-        //$('#input_angle_controls').fadeTo( "fast", 0.34 );
         $('#input_angle_controls').hide();
-        //$('#input_angle_checkbox_2').attr('disabled', 'disabled'); // Disable - Rotate from center
-        //document.querySelector('#input_angle_checkbox_3_lbl').MaterialCheckbox.uncheck(); // Uncheck - Automatic
-        //$('#input_angle_checkbox_3').attr('disabled', 'disabled'); // Disable - Automatic
-        //$('#input_angle_txt').val("-");
         $('#input_angle_txt').attr('disabled', 'disabled'); // Disable - Rotation angle
         $('#input_angle_dropdown_1').attr('disabled', 'disabled'); // Disable - Rotation increment dropdown
 
@@ -282,42 +263,8 @@
               break;
       }
   }
-  /*
-  _toggleCountAuto = function () {
-      if ($('#input_count_toggle').is(':checked')) {
-        //$('#input_count_txt_div').fadeTo( "fast", 0.34 );
-        $('#input_count_txt_div').hide();
-        $('#input_count_txt').attr('disabled', 'disabled'); // Disable - Count txt
 
-        if ($('#input_angle_checkbox_3').is(':checked')) {
-          document.querySelector('#input_angle_checkbox_3_lbl').MaterialCheckbox.uncheck();
-          _toggleAngleAuto();
-        }
-        
-      } else {
-        $('#input_count_txt_div').fadeTo( "fast", 1.0 );
-        $('#input_count_txt').removeAttr('disabled'); // Enable - Count txt
-      }
-  }
-  */
   _toggleAngleAuto = function () {
-      /*
-      if ($('#input_angle_checkbox_3').is(':checked')) {
-        //$('#input_angle_txt_div').fadeTo( "fast", 0.34 );
-        $('#input_angle_txt_div').hide();
-        $('#input_angle_txt').attr('disabled', 'disabled'); // Disable - Count txt
-        
-        if ($('#input_count_toggle').is(':checked')) {
-          document.querySelector('#input_count_toggle_lbl').MaterialCheckbox.uncheck();
-          _toggleCountAuto();
-        }
-        
-        
-      } else {
-        $('#input_angle_txt_div').fadeTo( "fast", 1.0 );
-        $('#input_angle_txt').removeAttr('disabled'); 
-      }
-      */
       $('#input_angle_txt_div').fadeTo( "fast", 1.0 );
       $('#rot_perf').fadeTo( "fast", 1.0 );
       
@@ -348,22 +295,22 @@
           case "Horizontally":
               $('#input_move_txt_1_div').show();
               $('#input_move_txt_2_div').hide();
-              $('#input_move_txt_3_div').hide();
+              //$('#input_move_txt_3_div').hide();
               break;
           case "Vertically":
               $('#input_move_txt_1_div').show();
               $('#input_move_txt_2_div').hide();
-              $('#input_move_txt_3_div').hide();
+              //$('#input_move_txt_3_div').hide();
               break;
           case "Diagonally":
               $('#input_move_txt_1_div').show();
               $('#input_move_txt_2_div').hide();
-              $('#input_move_txt_3_div').hide();
+              //$('#input_move_txt_3_div').hide();
               break;
           case "Randomly":
               $('#input_move_txt_1_div').hide();
               $('#input_move_txt_2_div').show();
-              $('#input_move_txt_3_div').show();
+              //$('#input_move_txt_3_div').show();
               break;
       }
   }
@@ -406,7 +353,6 @@
       if ($('#input_opacity_toggle').is(':checked')) {
         $('#input_opacity_controls').fadeTo( "fast", 1.0 );
       } else {
-        //$('#input_opacity_controls').fadeTo( "fast", 0.34 );
         $('#input_opacity_controls').hide();
       }
   }
@@ -415,31 +361,106 @@
       $('#rot_perf').hide();
       
   }
-  //_toggleScale();
+
   if ($('#input_scale_toggle').is(':checked')) {
       $('#input_scale_controls').fadeTo( "fast", 1.0 );
     } else {
-      //$('#input_scale_controls').fadeTo( "fast", 0.34 );
       $('#input_scale_controls').hide();
     }
 
-  //_toggleMove();
   if ($('#input_move_toggle').is(':checked')) {
     $('#input_move_controls').fadeTo( "fast", 1.0 );
   } else {
-    //$('#input_move_controls').fadeTo( "fast", 0.34 );
     $('#input_move_controls').hide();
   }
 
+
+  
   _toggleOpacity();
   _toggleScaleDropdown();
   _toggleMoveDropdown();
   _toggleAngleInc();
+  _toggleAngleEnbale();
+
+  
+    $('#submit').on('click', _submit);
+    $('#close').on('click', _close);    
+
   
 
-    $('#submit').on('click', _submit);    
+    _onChangeInput = function (element) {
+      $(element).on('input',function() {
+        if ($('#preview_checkBox').is(':checked')) {
+          _submit();  
+        }
+      });
+    }
 
-    //$('#input_count_toggle').on('change', _toggleCountAuto); // Count automatic toggle
+    _onChangeTrigger = function (element) {
+      $(element).on('click',function() {
+        if ($('#preview_checkBox').is(':checked')) {
+          $('#submit').hide();
+          $("#close").html('Done');
+          _submit();  
+        } else {
+            $('#submit').fadeTo( "fast", 1.0 );
+            $("#close").html('Close');
+        }
+      });
+    }
+
+    $('#submit').hide();
+    
+
+    // Input updates
+        // Count
+        _onChangeInput("#input_count_txt");
+
+        // Scale
+        _onChangeInput("#input_scale_txt_1");
+        _onChangeInput("#input_scale_txt_2");
+        _onChangeInput("#input_scale_txt_3");
+
+        // Move
+        _onChangeInput("#input_move_txt_1");
+        _onChangeInput("#input_move_txt_2");
+        _onChangeInput("#input_move_txt_3");
+
+        // Rotation
+        _onChangeInput("#input_angle_txt");
+        _onChangeInput("#input_angle_sin_val");
+        _onChangeInput("#input_angle_rnd_val");        
+    
+    // Click updates
+
+        // Scale
+        _onChangeTrigger("#input_scale_toggle");
+        _onChangeTrigger("#input_scale_dropdown");
+
+        // Move
+        _onChangeTrigger("#input_move_toggle");
+        _onChangeTrigger("#input_move_dropdown");
+
+        // Rotate
+        _onChangeTrigger("#input_angle_checkbox_1");
+        _onChangeTrigger("#input_rot_1");
+        _onChangeTrigger("#input_rot_2");
+        _onChangeTrigger("#input_angle_dropdown_1");
+
+        // Opacity
+        _onChangeTrigger("#input_opacity_toggle");
+        _onChangeTrigger("#input_opacity_1");
+        _onChangeTrigger("#input_opacity_2");
+        _onChangeTrigger("#input_opacity_3");
+
+        // Preview checkbox        
+        _onChangeTrigger("#preview_checkBox");
+
+
+    
+          
+    
+
     $('#input_angle_checkbox_1').on('change', _toggleAngleEnbale); // Rotate toggle
     $("#input_rot_1").on('change', _toggleAngleAuto1); // Rotate automatic toggle
     $("#input_rot_2").on('change', _toggleAngleAuto); // Rotate automatic toggle
@@ -449,6 +470,10 @@
     $('#input_scale_toggle').on('change', _toggleScale); // Rotate toggle
     $('#input_scale_dropdown').on('change', _toggleScaleDropdown); // Scale dropdown
     $('#input_opacity_toggle').on('change', _toggleOpacity); // Opacity toggle
+    
+    setTimeout(function () {
+        _submit();  
+    }, 500);
     
 
 })();

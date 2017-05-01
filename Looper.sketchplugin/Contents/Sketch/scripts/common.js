@@ -1,14 +1,24 @@
+//
+//  Looper sketch plugin
+//  Created by Sures Kumar
+//  sureskumar.com
+//  sures.srinivasan@gmail.com
+//
+
+var loop, 
+ori_layer_name, 
+created_looper_group, 
+ori_x, 
+ori_y;
+var opacity_val = 0;
+
 var MD = {
   init: function (context, command, args) {
-
     var commandOptions = '' + args;
-
     this.prefs = NSUserDefaults.standardUserDefaults();
     this.context = context;
-
     this.version = this.context.plugin.version() + "";
     this.MDVersion = this.prefs.stringForKey("MDVersion") + "" || 0;
-
     this.extend(context);
     this.pluginRoot = this.scriptPath
       .stringByDeletingLastPathComponent()
@@ -16,14 +26,10 @@ var MD = {
       .stringByDeletingLastPathComponent();
     this.pluginSketch = this.pluginRoot + "/Contents/Sketch/scripts";
     this.resources = this.pluginRoot + '/Contents/Resources';
-
     coscript.setShouldKeepAround(false);
-
-
     if (command && command == "init") {
       return false;
     }
-
     this.document = context.document;
     this.documentData = this.document.documentData();
     this.UIMetadata = context.document.mutableUIMetadata();
@@ -32,7 +38,6 @@ var MD = {
     this.page = this.document.currentPage();
     this.artboard = this.page.currentArtboard();
     this.current = this.artboard || this.page;
-
     if (command) {
       switch (command) {
         case "generate-pattern":
@@ -43,14 +48,12 @@ var MD = {
   },
   extend: function(options, target) {
     var target = target || this;
-
     for (var key in options) {
       target[key] = options[key];
     }
     return target;
   }
 };
-
 
 MD.extend({
     prefix: "MDConfig",
@@ -62,7 +65,6 @@ MD.extend({
         else{
             configsData = this.UIMetadata.objectForKey(this.prefix);
         }
-
         return JSON.parse(configsData);
     },
      setConfigs: function(newConfigs, container){
@@ -88,11 +90,9 @@ MD.extend({
         else{
             configsData = this.UIMetadata.setObject_forKey (null, this.prefix);
         }
-
     }
 });
 
-// api.js
 MD.extend({
   addShape: function () {
     var shape = MSRectangleShape.alloc().initWithFrame(NSMakeRect(0, 0, 100, 100));
@@ -104,7 +104,6 @@ MD.extend({
   }
 });
 
-// Panel.js
 MD.extend({
   createCocoaObject: function (methods, superclass) {
     var uniqueClassName = "MD.sketch_" + NSUUID.UUID().UUIDString();
@@ -124,32 +123,26 @@ MD.extend({
         NSApplication.sharedApplication().sendEvent(evt);
       },
     }, NSButton);
-
     button.setIdentifier('firstMouseAcceptor');
     button.setTransparent(true);
     button.setTranslatesAutoresizingMaskIntoConstraints(false);
-
     contentView.addSubview(button);
-
     var views = {
       button: button,
       webView: webView
     };
-
     // Match width of WebView.
     contentView.addConstraints([NSLayoutConstraint
             constraintsWithVisualFormat:'H:[button(==webView)]'
             options:NSLayoutFormatDirectionLeadingToTrailing
             metrics:null
             views:views]);
-
     // Match height of WebView.
     contentView.addConstraints([NSLayoutConstraint
             constraintsWithVisualFormat:'V:[button(==webView)]'
             options:NSLayoutFormatDirectionLeadingToTrailing
             metrics:null
             views:views]);
-
     // Match top of WebView.
     contentView.addConstraints([[NSLayoutConstraint
             constraintWithItem:button attribute:NSLayoutAttributeTop
@@ -171,21 +164,16 @@ MD.extend({
       }),
       result = false;
     options.url = encodeURI("file://" + options.url);
-
     var frame = NSMakeRect(0, 0, options.width, (options.height + 32)),
       titleBgColor = NSColor.colorWithRed_green_blue_alpha(0 / 255, 145 / 255, 234 / 255, 1),
       contentBgColor = NSColor.colorWithRed_green_blue_alpha(1, 1, 1, 1);
-
     if (options.identifier) {
       threadDictionary = NSThread.mainThread().threadDictionary();
     }
-
     if (options.identifier && threadDictionary[options.identifier]) {
       return false;
     }
-
     var Panel = NSPanel.alloc().init();
-
     Panel.setTitleVisibility(NSWindowTitleHidden);
     Panel.setTitlebarAppearsTransparent(true);
     Panel.standardWindowButton(NSWindowCloseButton).setHidden(options.hiddenClose);
@@ -194,7 +182,6 @@ MD.extend({
     Panel.setFrame_display(frame, true);
     Panel.setBackgroundColor(contentBgColor);
     Panel.setWorksWhenModal(true);
-
     if (options.floatWindow) {
       Panel.becomeKeyWindow();
       Panel.setLevel(NSFloatingWindowLevel);
@@ -202,19 +189,14 @@ MD.extend({
       // Long-running script
       COScript.currentCOScript().setShouldKeepAround_(true);
     }
-
     var contentView = Panel.contentView(),
       webView = WebView.alloc().initWithFrame(NSMakeRect(0, 0, options.width, options.height));
-
     var windowObject = webView.windowScriptObject();
-
     contentView.setWantsLayer(true);
     contentView.layer().setFrame(contentView.frame());
-
     webView.setBackgroundColor(contentBgColor);
     webView.setMainFrameURL_(options.url);
     contentView.addSubview(webView);
-
     var delegate = new MochaJSDelegate({
       "webView:didFinishLoadForFrame:": (function (webView, webFrame) {
         var MDAction = [
@@ -226,32 +208,27 @@ MD.extend({
           DOMReady = [
             "$(", "function(){", "init(" + JSON.stringify(options.data) + ")", "}",");"
           ].join("");
-
         windowObject.evaluateWebScript(MDAction);
         windowObject.evaluateWebScript(DOMReady);
       }),
       "webView:didChangeLocationWithinPageForFrame:": (function (webView, webFrame) {
         var request = NSURL.URLWithString(webView.mainFrameURL()).fragment();
-
         if (request == "submit") {
           var data = JSON.parse(decodeURI(windowObject.valueForKey("MDData")));
           options.callback(data);
           result = true;
-          if (!options.floatWindow) {
-            windowObject.evaluateWebScript("window.location.hash = 'close';");
-          }
         }
-
+        if (request == "closePanel") {
+            windowObject.evaluateWebScript("window.location.hash = 'close';");
+        }
         if (request == 'drag-end') {
           var data = JSON.parse(decodeURI(windowObject.valueForKey("MDData")));
           MD.Importer().convertSvgToSymbol(data);
           result = true;
         }
-
         if (request == 'onWindowDidBlur') {
           MD.addFirstMouseAcceptor(webView, contentView);
         }
-
         if (request == "close") {
           if (!options.floatWindow) {
             Panel.orderOut(nil);
@@ -261,7 +238,6 @@ MD.extend({
             Panel.close();
           }
         }
-
         if (request == "focus") {
           var point = Panel.currentEvent().locationInWindow(),
             y = NSHeight(Panel.frame()) - point.y - 32;
@@ -270,27 +246,21 @@ MD.extend({
         windowObject.evaluateWebScript("window.location.hash = '';");
       })
     });
-
     webView.setFrameLoadDelegate_(delegate.getClassInstance());
-
     if (options.floatWindow) {
       Panel.center();
       Panel.makeKeyAndOrderFront(nil);
     }
-
     var closeButton = Panel.standardWindowButton(NSWindowCloseButton);
     closeButton.setCOSJSTargetFunction(function (sender) {
       var request = NSURL.URLWithString(webView.mainFrameURL()).fragment();
-
       if (options.floatWindow && request == "submit") {
         data = JSON.parse(decodeURI(windowObject.valueForKey("MDData")));
         options.callback(data);
       }
-
       if (options.identifier) {
         threadDictionary.removeObjectForKey(options.identifier);
       }
-
       self.wantsStop = true;
       if (options.floatWindow) {
         Panel.close();
@@ -299,34 +269,30 @@ MD.extend({
         Panel.orderOut(nil);
         NSApp.stopModal();
       }
-
     });
     closeButton.setAction("callAction:");
-
     var titlebarView = contentView.superview().titlebarViewController().view(),
-      titlebarContainerView = titlebarView.superview();
+    titlebarContainerView = titlebarView.superview();
     closeButton.setFrameOrigin(NSMakePoint(8, 8));
     titlebarContainerView.setFrame(NSMakeRect(0, options.height, options.width, 32));
     titlebarView.setFrameSize(NSMakeSize(options.width, 32));
     titlebarView.setTransparent(true);
     titlebarView.setBackgroundColor(titleBgColor);
     titlebarContainerView.superview().setBackgroundColor(titleBgColor);
-
     if (!options.floatWindow) {
       NSApp.runModalForWindow(Panel);
     }
-
     return result;
   },
 
   patternPanel: function () {
     var self = this,
       data = {};
-
+    var loopedOnce = 0;
     return this.MDPanel({
       url: this.pluginSketch + "/panel/table.html",
-      width: 612,
-      height: 550,
+      width: 448,
+      height: 465,
       data: data,
       identifier: 'com.google.material.pattern',
       floatWindow: false,
@@ -334,20 +300,37 @@ MD.extend({
         self.configs = self.setConfigs({
           table: data
         });
-      }
+        if(self.configs) {  
+             if(loopedOnce == 1) {
+                  var layers = MD.current.layers()
+                  for (var ia=0; ia < [layers count]; ia++) {
+                      var layer = [layers objectAtIndex:ia]
+                      if(layer.objectID() == created_looper_group){
+                        layer.removeFromParent()
+                      }
+                  }
+                  for (var ib=0; ib < [layers count]; ib++) {
+                      var layer = [layers objectAtIndex:ib]
+                      if(layer.name() == ori_layer_name){
+                        log(layer.name());
+                        layer.setIsVisible(1);
+                        [layer select:true byExpandingSelection:true];
+                        MD.runLooper(layer);
+                      }
+                  }
+              } else {
+                  loopedOnce = 1;
+                  MD.runLooper();
+              }          
+        }
+      },
     });
-  }
+  },
 
-});
-
-
-MD["Pattern"] = function()
-{
-
-      // Globals
+  runLooper: function (loopingLayer) {
+    // Globals
     var self = MD,
     selection = MD.context.selection;
-
     var position,
       position_rnd_x,
       position_rnd_y,
@@ -355,7 +338,6 @@ MD["Pattern"] = function()
       loop,
       rotate_select,
       opacity,
-      opacity_val,
       scale,
       scale_px,
       scale_pr,
@@ -364,74 +346,9 @@ MD["Pattern"] = function()
       angle,
       angle_sin,
       angle_rnd;
-    
-
     var self = this;
-    var _doSomething = function()
-    {
-       var execute_code = 1;
-       if (selection.count() <= 0) {
-          MD.document.showMessage("Select a text layer or group to duplicate. Cheers!");
-          execute_code = 0;
-        } else {
-            for(var i = 0; i < selection.count(); i++){
-              var layer = selection[i];
-              if (layer == MD.artboard) {
-                MD.document.showMessage("Layers and groups placed outside an artboard and an artboard by itself can't be looped. Cheers!");
-                    execute_code = 0;
-              }
-          }
-        }
 
-        if(execute_code == 1) {
-          if( MD.patternPanel() )
-           {
-               parseDataFromPanel();
-           }  
-        }
-        
-    }
-
-    var setOpacity = function( l, lop, o, jj )
-    {
-      switch(o) {
-          case 1:
-              //No Change
-              break;
-          case 2:
-              //Random opacity
-              [[[l style] contextSettings] setOpacity:(Math.random())]
-              break;
-          case 3:
-              //Opacity 0 to 1
-              if(jj > 0) {
-                var opa_inc = 100/lop;
-                opacity_val = opacity_val + opa_inc;
-                [[[l style] contextSettings] setOpacity:(opacity_val/100)]
-              }
-              break;
-          case 4:
-              //Opacity 1 to 0
-              if(jj > 0) {
-                var opa_inc = 100/lop;
-                opacity_val = opacity_val - opa_inc;
-                [[[l style] contextSettings] setOpacity:(opacity_val/100)]
-              }
-              break;
-      }
-    }
-
-    var addText = function( v )
-    {
-      var txt = MSTextLayer.new();
-      txt.setStringValue(""+v);
-      return txt;
-    }
-
-    var parseDataFromPanel = function () 
-    {
-
-      // Get input from panel
+    // Get input from panel
       // COUNT
       loop = MD.configs.table.send_loop;
       log("loop: "+loop);
@@ -508,48 +425,70 @@ MD["Pattern"] = function()
               break;
       }
 
-      // Create a group
-      groupLayer = MSLayerGroup.new();
-      MD.current.addLayers([groupLayer]);
+        log('inside');
+        log(opacity_val);
 
-      for(var i = 0; i < selection.count(); i++){
+        // Get selected layer
+        var layer;
+        if(loopingLayer) {
+          layer = loopingLayer;
+        } else {
+          layer = selection[0];
+        }
 
-        // Layer selection
-        var layer = selection[i];
+        // Assign or get looping layer position
+        var frame = [layer frame];
+        if(ori_x) {
+          [frame setX: ori_x]
+            [frame setY: ori_y]
+        } else {
+          ori_x = [frame x];
+          ori_y = [frame y];
+        }
 
         // Hide the original layer
         layer.setIsVisible(0);
-        var layerName = layer.name();
-        layer.setName("original_" + layerName);
 
-        // Add the layer to the group
-        groupLayer.setName("Looper_" + layerName);
-        MD.current.removeLayer(layer);
-        groupLayer.addLayers([layer]);
+        var layerName = layer.name();
+        if(!ori_layer_name) {
+          ori_layer_name = "original_" + layerName + "_" + Math.floor(Math.random() * 100000000);
+        }
+        layer.setName(ori_layer_name);
+
+        // Create a group
+        groupLayer = MSLayerGroup.new();
+        groupLayer.setName(layerName + " Group");
 
         // Duplicate just the first copy
         layer.duplicate();
         layer.setIsVisible(1);
         layer.setName("duplicate_1_" + layerName);
 
+        // Add it to the group
+        MD.current.removeLayer(layer);
+        groupLayer.addLayers([layer]);
+
         // Set opacity for the first copy
-        setOpacity(layer, loop, opacity, 1);
+        MD.setOpacity(layer, loop, opacity, 1);
 
         // Variable declarations
         var frame, oldWidth, oldHeight, oldXPos, oldYPos, newWidth, newHeight, newXPos, newYPos, rotation, newRotation, cur_angle;
 
+        var tempCount = 0;  
+
         if(loop < 2) {
           loop = 1;
-        } else {
-          loop = loop - 1;
         }
-        for(var j = 0; j < loop; j++){
-            // Duplicate
-            layer.duplicate();
-            layer.setName("duplicate_" + (j+2) + "_" + layerName);
 
+        for(var j = 0; j < loop-1; j++){
+            // Duplicate
+            if(loop > 1) {
+              layer.duplicate();
+              tempCount = j+2;
+              layer.setName("duplicate_" + tempCount + "_" + layerName);
+            }
             // Opacity for rest of the layers
-            setOpacity(layer, loop, opacity, j+2);
+            MD.setOpacity(layer, loop, opacity, j+2);
 
             // Rotate
             rotation = layer.rotation();
@@ -590,15 +529,8 @@ MD["Pattern"] = function()
                     //Random
                     var r_temp = Math.floor(Math.random() * scale_rnd);
                     log("scale_rnd: "+r_temp);
-                    //if (loop%2 == 0) {
-                        newWidth = Math.floor(oldWidth + r_temp);
-                        newHeight = Math.floor(oldHeight + r_temp);
-                    /*
-                    } else {
-                        newWidth = Math.floor(oldWidth - r_temp);
-                        newHeight = Math.floor(oldHeight - r_temp);
-                    }
-                    */
+                    newWidth = Math.floor(oldWidth + r_temp);
+                    newHeight = Math.floor(oldHeight + r_temp);
                     break;
                 case 2:
                     //Scale PX
@@ -611,7 +543,6 @@ MD["Pattern"] = function()
                     newHeight = Math.round(oldHeight * scale_pr);
                     break;
             }
-
 
             // Position
           switch(position) {
@@ -654,20 +585,27 @@ MD["Pattern"] = function()
 
         }
 
-        groupLayer.resizeToFitChildrenWithOption(0);
-        
-      }
-
-      /*
+      // Create a parent group called 'Looper_Group'
       groupLayer1 = MSLayerGroup.new();
       MD.current.addLayers([groupLayer1]);
-      groupLayer1.setName("Looper group");
+      groupLayer1.setName("Looper_Group");
+      
+      // Remember the group's ID
+      created_looper_group = groupLayer1.objectID();
+      
+      // Add child group and settings text to parent group 'Looper_Group'
       MD.current.removeLayer(groupLayer);
       groupLayer1.addLayers([groupLayer]);
-      */
 
+      
       // ---- Add parameters as text layer in the group
       /*
+      var str = "No. of copies: "+loop+"\n"+;
+      var txt = MD.addText(str);
+      txt.setName("Looper parameters");
+      txt.setIsVisible(0);
+      groupLayer1.addLayer(txt);
+
       var str = "Position (0-Center, 1-Corner, 2-Hori, 3-Vert, 4-Diagonal, 5-Random): "+position+"\n"+
       "Position Random Width (position_rnd_x): "+position_rnd_x+"\n"+
       "Position Random Height (position_rnd_y): "+position_rnd_y+"\n"+
@@ -687,19 +625,86 @@ MD["Pattern"] = function()
       "-\n"+
       "Opacity (1-No, 2-Random, 3-0to1, 4-1to0): "+opacity+"\n";
       */
-      /*
-      var txt = addText(str);
-      txt.setName("Looper parameters");
-      txt.setIsVisible(0);
-      groupLayer1.addLayer (txt);
-      */
 
-      // ---- Resize group to fit all children
-      //groupLayer.resizeToFitChildrenWithOption(0);
-      //groupLayer1.resizeToFitChildrenWithOption(0);
+      // Resize group to fit all children
+      groupLayer.resizeToFitChildrenWithOption(0);
+      groupLayer1.resizeToFitChildrenWithOption(0);
+      
+  },
 
-      // ---- Collapse groups    
-
+  setOpacity: function( l, lop, o, jj )
+  {
+    switch(o) {
+        case 1:
+            //No Change
+            break;
+        case 2:
+            //Random opacity
+            [[[l style] contextSettings] setOpacity:(Math.random())]
+            break;
+        case 3:
+            //Opacity 0 to 1
+            if(jj > 0) {
+              var opa_inc;
+              opa_inc = 100/lop;
+              opacity_val = opacity_val + opa_inc;
+              [[[l style] contextSettings] setOpacity:(opacity_val/100)]
+            }
+            log(opacity_val);
+            break;
+        case 4:
+            //Opacity 1 to 0
+            if(jj > 0) {
+              var opa_inc;
+              opa_inc = 100/lop;
+              opacity_val = opacity_val - opa_inc;
+              [[[l style] contextSettings] setOpacity:(opacity_val/100)]
+            }
+            log(opacity_val);
+            break;
     }
-  _doSomething();
+  },
+
+  addText: function(v)
+  {
+    var txt;
+    txt = MSTextLayer.new();
+    txt.setStringValue(""+v);
+    return txt;
+  }
+
+});
+
+
+
+MD["Pattern"] = function()
+{
+    var self = MD,
+    selection = MD.context.selection;   
+
+    var self = this;
+    var runPLugin = function()
+    {
+       var execute_code = 1;
+       if (selection.count() <= 0) {
+          MD.document.showMessage("Select a layer or group to duplicate. Cheers!");
+          execute_code = 0;
+        } else if (selection.count() > 1) {
+          MD.document.showMessage("Select only one layer or group to duplicate. Cheers!");
+          execute_code = 0;
+        } else {
+            for(var i = 0; i < selection.count(); i++){
+              var layer = selection[i];
+              if (layer == MD.artboard) {
+                MD.document.showMessage("Select a layer or group to duplicate. Cheers!");
+                    execute_code = 0;
+              }
+          }
+        }
+
+        if(execute_code == 1) {
+          MD.patternPanel();
+        }        
+    }
+  runPLugin();
 }
