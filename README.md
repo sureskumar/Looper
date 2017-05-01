@@ -111,6 +111,14 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 #### Move (horizontal + vertical)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_28.jpg)
 
+## Change log
+
+* Preview mode: Introduced preview mode so that the values can be tweaked realtime.
+* Lighter and tigher UI: will fit in all small screen sizes.
+* Improved performance
+* Bug fixes
+
+
 ## Thanks
 
 * [Harish Sivaramakrishnan](https://github.com/harish-io)
