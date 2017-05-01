@@ -1,4 +1,4 @@
-# Looper `⌘ + L`
+# Looper v2.0 `⌘ + L`
 
 Looper is a sketch plugin that helps automate duplication of groups and layers. One can control properties like Rotate, Scale and Opacity while duplicating. This powerful combination enables artists and designers to create interesting geometric and organic patterns.
 
@@ -113,8 +113,10 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 
 ## Change log
 
-* Preview mode: Introduced preview mode so that the values can be tweaked realtime.
-* Lighter and tigher UI: will fit in all small screen sizes.
+#### version 2.0.0
+
+* **Preview mode**: Introduced preview mode so that the values can be tweaked realtime.
+* **Lighter and tigher UI**: will fit in all small screen sizes.
 * Improved performance
 * Bug fixes
 
