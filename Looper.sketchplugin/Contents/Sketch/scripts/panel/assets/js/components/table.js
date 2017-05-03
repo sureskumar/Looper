@@ -130,11 +130,7 @@
             options.send_rotate_select = 1;
           }
 
-          if (rotate_auto) {
-            options.send_angle = (360/loop);
-          } else {
-            options.send_angle = rotate_angle;
-          }
+          
 
           switch(rotate_inc_perf) {
               case "Linear":
@@ -146,6 +142,13 @@
               case "Random":
                   options.send_rotate_inc_perf = 2;
                   break;
+          }
+
+          if (rotate_auto) {
+            options.send_angle = (360/loop);
+            options.send_rotate_inc_perf = 0;
+          } else {
+            options.send_angle = rotate_angle;
           }
 
           options.send_rotate_sin = rotate_sin;

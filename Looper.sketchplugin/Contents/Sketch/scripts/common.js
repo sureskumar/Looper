@@ -394,7 +394,7 @@ MD.extend({
       log("scale_px: "+scale_px);
 
       scale_pr = MD.configs.table.send_scale_pr;
-      scale_pr = scale_pr / 100;
+      //scale_pr = scale_pr / 100;
       log("scale_pr: "+scale_pr);
 
       scale_rnd = MD.configs.table.send_scale_rnd;
@@ -475,6 +475,7 @@ MD.extend({
         var frame, oldWidth, oldHeight, oldXPos, oldYPos, newWidth, newHeight, newXPos, newYPos, rotation, newRotation, cur_angle;
 
         var tempCount = 0;  
+        var counter = 0;
 
         if(loop < 2) {
           loop = 1;
@@ -499,7 +500,13 @@ MD.extend({
                     break;
               case 1:
                     //Sin
-                  cur_angle = (Math.sin(j)*angle_sin) + angle;      
+                    
+                    var increase = Math.PI * angle_sin / 100;
+                    cur_angle = Math.sin(counter);
+                    counter += increase;
+
+                    //cur_angle = (Math.sin(j-1)*angle_sin) + angle;
+                    log('cur_angle: ' + cur_angle);
                     break;
                 case 2:
                     //Random
@@ -536,11 +543,15 @@ MD.extend({
                     //Scale PX
                     newWidth = Math.floor(oldWidth) + Math.floor(scale_px);
                     newHeight = Math.floor(oldHeight) + Math.floor(scale_px);
+                    //log('newWidth: ' + newWidth);
+                    //log('newHeight: ' + newHeight);
                     break;
                 case 3:
                     //Scale Percentage
-                    newWidth = Math.round(oldWidth * scale_pr);
-                    newHeight = Math.round(oldHeight * scale_pr);
+                    newWidth = Math.round(oldWidth * (scale_pr / 100));
+                    newHeight = Math.round(oldHeight * (scale_pr / 100));
+                    //log('newWidth: ' + newWidth);
+                    //log('newHeight: ' + newHeight);
                     break;
             }
 
@@ -548,8 +559,8 @@ MD.extend({
           switch(position) {
                 case 0:
                     //From center
-                    newXPos = Math.round(oldXPos - ((newWidth - oldWidth) / 2));
-                    newYPos = Math.round(oldYPos - ((newHeight - oldHeight) / 2));
+                    newXPos = oldXPos - ((newWidth - oldWidth) / 2);
+                    newYPos = oldYPos - ((newHeight - oldHeight) / 2);
                     break;
                 case 1:
                     //From corner
