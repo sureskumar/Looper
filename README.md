@@ -9,11 +9,11 @@ Looper is a sketch plugin that helps automate duplication of groups and layers. 
 #### Recommended
 * Install via [Sketch Runner](http://sketchrunner.com/), [Sketchpacks](https://sketchpacks.com/sureskumar/looper/install), or [Sketch Toolbox](http://sketchtoolbox.com/) by searching for Looper.
 
-<a href="http://bit.ly/SketchRunnerWebsite">
+<a target="_blank" href="http://bit.ly/SketchRunnerWebsite">
   <img width="160" height="41" src="http://bit.ly/RunnerBadgeBlue">
 </a>
 
-<a href="https://sketchpacks.com/stark-contrast/stark-sketch-plugin/install">
+<a target="_blank" href="https://sketchpacks.com/stark-contrast/stark-sketch-plugin/install">
   <img width="160" height="41" src="http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png" >
 </a>
 
@@ -31,7 +31,6 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 * [Facebook page](https://www.facebook.com/loopersketch/)
 
 ![Looper banner](http://www.sureskumar.com/looper/github_imgs/banner.jpg)
-
 ## Features
 
 ### Duplication count
@@ -50,6 +49,7 @@ Rotation angle can be incremented in a linear fashion, randomly or can be set to
 
 ### Move
 Selected group or layer can be moved Horizontally, Vertically and Diagonally with a set increment value. Duplicated items can also be distributed randomly within a given dimension (width & height)
+
 
 ## Examples
 ![Looper sample](http://www.sureskumar.com/looper/github_imgs/looper_example_16_exp.jpg)
@@ -149,4 +149,4 @@ Feel free to contact me for any suggestions or critique.
 
 ## Links
 
-[Project website](http://www.sureskumar.com/looper) | [My portfolio](http://www.sureskumar.com) | [Twitter](https://twitter.com/sureskumar)
+[Looper website](http://www.sureskumar.com/looper) | [My portfolio](http://www.sureskumar.com) | [Twitter](https://twitter.com/sureskumar)
