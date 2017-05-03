@@ -24,6 +24,7 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 1. [Download the ZIP file of this repository](https://github.com/sureskumar/Looper/archive/master.zip)
 2. Double click on `Looper.sketchplugin`
 
+
 ## Want to say thanks? Share your work!
 #### Please share what you create in one of the channels below. Cheers!
 * Twitter: #builtwithlooper and/or @sketchlooper
