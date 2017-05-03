@@ -4,12 +4,35 @@ Looper is a sketch plugin that helps automate duplication of groups and layers. 
 
 ![Looper banner](http://www.sureskumar.com/looper/github_imgs/looper.gif)
 
+## Installation
+
+#### Recommended
+* Install via [Sketch Runner](http://sketchrunner.com/), [Sketchpacks](https://sketchpacks.com/sureskumar/looper/install), or [Sketch Toolbox](http://sketchtoolbox.com/) by searching for Looper.
+
+<a href="http://bit.ly/SketchRunnerWebsite">
+  <img width="160" height="41" src="http://bit.ly/RunnerBadgeBlue">
+</a>
+
+<a href="https://sketchpacks.com/stark-contrast/stark-sketch-plugin/install">
+  <img width="160" height="41" src="http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png" >
+</a>
+
+#### Old-Fashioned
+
+Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
+
+1. [Download the ZIP file of this repository](https://github.com/sureskumar/Looper/archive/master.zip)
+2. Double click on `Looper.sketchplugin`
+
+
 #### Please share what you create in one of the channels below. Cheers!
 * Twitter: #builtwithlooper and/or @sketchlooper
 * [Email](mailto:sures.srinivasan@gmail.com)
 * [Facebook page](https://www.facebook.com/loopersketch/)
 
 ![Looper banner](http://www.sureskumar.com/looper/github_imgs/banner.jpg)
+
+## Features
 
 ### Duplication count
 Duplicate selected group or layer by providing the duplication count or Looper can automatically calculate the count based on the rotation angle to form a complete circle.
@@ -27,16 +50,6 @@ Rotation angle can be incremented in a linear fashion, randomly or can be set to
 
 ### Move
 Selected group or layer can be moved Horizontally, Vertically and Diagonally with a set increment value. Duplicated items can also be distributed randomly within a given dimension (width & height)
-
-## Install manually
-
-Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
-
-1. [Download the ZIP file of this repository](https://github.com/sureskumar/Looper/archive/master.zip)
-2. Double click on `Looper.sketchplugin`
-
-## Install from Sketchpacks
-[![Install Looper with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Looper with Sketchpacks")](https://sketchpacks.com/sureskumar/looper/install)
 
 ## Examples
 ![Looper sample](http://www.sureskumar.com/looper/github_imgs/looper_example_16_exp.jpg)
