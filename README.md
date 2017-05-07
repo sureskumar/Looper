@@ -13,7 +13,7 @@ Looper is a sketch plugin that helps automate duplication of groups and layers. 
   <img width="160" height="41" src="http://bit.ly/RunnerBadgeBlue">
 </a>
 
-<a target="_blank" href="https://sketchpacks.com/stark-contrast/stark-sketch-plugin/install">
+<a target="_blank" href="https://sketchpacks.com/sureskumar/looper/install">
   <img width="160" height="41" src="http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png" >
 </a>
 
