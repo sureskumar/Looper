@@ -1,7 +1,7 @@
 //
 //  Looper sketch plugin
 //  Created by Sures Kumar
-//  sureskumar.com
+//  http://www.sureskumar.com
 //  sures.srinivasan@gmail.com
 //
 
@@ -292,7 +292,7 @@ MD.extend({
     return this.MDPanel({
       url: this.pluginSketch + "/panel/table.html",
       width: 448,
-      height: 465,
+      height: 495,
       data: data,
       identifier: 'com.google.material.pattern',
       floatWindow: false,
@@ -312,7 +312,7 @@ MD.extend({
                   for (var ib=0; ib < [layers count]; ib++) {
                       var layer = [layers objectAtIndex:ib]
                       if(layer.name() == ori_layer_name){
-                        log(layer.name());
+                        //log(layer.name());
                         layer.setIsVisible(1);
                         [layer select:true byExpandingSelection:true];
                         MD.runLooper(layer);
@@ -345,60 +345,80 @@ MD.extend({
       angle_choice,
       angle,
       angle_sin,
-      angle_rnd;
+      angle_rnd,
+      grid_x,
+      grid_y,
+      position_grid_x_inc,
+      position_grid_y_inc;
     var self = this;
 
     // Get input from panel
       // COUNT
       loop = MD.configs.table.send_loop;
-      log("loop: "+loop);
+      //log("loop: "+loop);
 
       // ANGLE
       rotate_select = MD.configs.table.send_rotate_select;
-      log("rotate_select: "+rotate_select);
+      //log("rotate_select: "+rotate_select);
 
       angle = MD.configs.table.send_angle;
-      log("angle: "+angle);
+      //log("angle: "+angle);
 
       angle_choice = MD.configs.table.send_rotate_inc_perf;
-      log("angle_choice: "+angle_choice);
+      //log("angle_choice: "+angle_choice);
 
       angle_sin = MD.configs.table.send_rotate_sin;
-      log("angle_sin: "+angle_sin);
+      //log("angle_sin: "+angle_sin);
 
       angle_rnd = MD.configs.table.send_rotate_rnd;
-      log("angle_rnd: "+angle_rnd);
+      //log("angle_rnd: "+angle_rnd);
 
       // OPACITY
       opacity = MD.configs.table.send_opacity;
-      log("opacity: "+opacity);
+      //log("opacity: "+opacity);
 
       // MOVE
       position = MD.configs.table.send_position;
-      log("position: "+position);
+      //log("position: "+position);
 
       position_inc = MD.configs.table.send_move_inc;
-      log("position_inc: "+position_inc);
+      //log("position_inc: "+position_inc);
 
       position_rnd_x = MD.configs.table.send_move_rnd_x;
-      log("position_rnd_x: "+position_rnd_x);
+      //log("position_rnd_x: "+position_rnd_x);
 
       position_rnd_y = MD.configs.table.send_move_rnd_y;
-      log("position_rnd_y: "+position_rnd_y);
+      //log("position_rnd_y: "+position_rnd_y);
+
+
+      // GRID
+      grid_x = Math.floor(MD.configs.table.send_grid_c);
+      if(grid_x < 1) { grid_x = 1; }
+      //log("grid_x: "+grid_x);
+      
+      grid_y = Math.floor(MD.configs.table.send_grid_r);
+      if(grid_y < 1) { grid_y = 1; }
+      //log("grid_y: "+grid_y);
+
+      position_grid_x_inc = Math.floor(MD.configs.table.send_grid_x);
+      //log("position_grid_x_inc: "+position_grid_x_inc);
+
+      position_grid_y_inc = Math.floor(MD.configs.table.send_grid_y);
+      //log("position_grid_y_inc: "+position_grid_y_inc);
 
       // SCALE
       scale = MD.configs.table.send_scale;
-      log("scale: "+scale);
+      //log("scale: "+scale);
 
       scale_px = MD.configs.table.send_scale_px;
-      log("scale_px: "+scale_px);
+      //log("scale_px: "+scale_px);
 
       scale_pr = MD.configs.table.send_scale_pr;
       //scale_pr = scale_pr / 100;
-      log("scale_pr: "+scale_pr);
+      //log("scale_pr: "+scale_pr);
 
       scale_rnd = MD.configs.table.send_scale_rnd;
-      log("scale_rnd: "+scale_rnd);
+      //log("scale_rnd: "+scale_rnd);
 
       // Variable declaration
       var ui_width = 200;
@@ -425,8 +445,8 @@ MD.extend({
               break;
       }
 
-        log('inside');
-        log(opacity_val);
+        //log('inside');
+        //log(opacity_val);
 
         // Get selected layer
         var layer;
@@ -473,6 +493,12 @@ MD.extend({
 
         // Variable declarations
         var frame, oldWidth, oldHeight, oldXPos, oldYPos, newWidth, newHeight, newXPos, newYPos, rotation, newRotation, cur_angle;
+        var grid_row_count = 0;
+
+        frame = [layer frame];
+        var grid_old_x = [frame x];
+        var grid_old_y = [frame y];
+        var grid_old_h = [frame height];
 
         var tempCount = 0;  
         var counter = 0;
@@ -480,6 +506,11 @@ MD.extend({
         if(loop < 2) {
           loop = 1;
         }
+
+        if(position == 6) {
+          loop = grid_x * grid_y;
+        }
+
 
         for(var j = 0; j < loop-1; j++){
             // Duplicate
@@ -496,21 +527,18 @@ MD.extend({
             switch(angle_choice) {
                 case 0:
                     //Linear
-                  cur_angle = angle;      
+                    cur_angle = angle;      
                     break;
               case 1:
                     //Sin
-                    
                     var increase = Math.PI * angle_sin / 100;
                     cur_angle = Math.sin(counter);
                     counter += increase;
-
-                    //cur_angle = (Math.sin(j-1)*angle_sin) + angle;
-                    log('cur_angle: ' + cur_angle);
+                    //log('cur_angle: ' + cur_angle);
                     break;
                 case 2:
                     //Random
-                  cur_angle = (Math.random(angle-angle_rnd, angle+angle_rnd) * 100);    
+                    cur_angle = (Math.random(angle-angle_rnd, angle+angle_rnd) * 100);    
                     break;
             }
 
@@ -535,7 +563,7 @@ MD.extend({
                 case 1:
                     //Random
                     var r_temp = Math.floor(Math.random() * scale_rnd);
-                    log("scale_rnd: "+r_temp);
+                    //log("scale_rnd: "+r_temp);
                     newWidth = Math.floor(oldWidth + r_temp);
                     newHeight = Math.floor(oldHeight + r_temp);
                     break;
@@ -586,6 +614,19 @@ MD.extend({
                     //Random
                     newXPos = Math.round(Math.floor((Math.random() * position_rnd_x) + 1));
                     newYPos = Math.round(Math.floor((Math.random() * position_rnd_y) + 1));    
+                    break;
+                  case 6:
+                    //Grid
+                    grid_row_count = grid_row_count + 1;
+                    if(grid_row_count >= grid_x) {
+                      grid_row_count = 0;
+                      newXPos = grid_old_x;
+                      newYPos = grid_old_y + position_grid_y_inc;
+                      grid_old_y = newYPos;
+                    } else {
+                      newXPos = oldXPos + Math.floor(position_grid_x_inc);
+                      newYPos = Math.round(oldYPos - ((newHeight - oldHeight) / 2));
+                    }
                     break;
             }
 
@@ -661,7 +702,7 @@ MD.extend({
               opacity_val = opacity_val + opa_inc;
               [[[l style] contextSettings] setOpacity:(opacity_val/100)]
             }
-            log(opacity_val);
+            //log(opacity_val);
             break;
         case 4:
             //Opacity 1 to 0
@@ -671,7 +712,7 @@ MD.extend({
               opacity_val = opacity_val - opa_inc;
               [[[l style] contextSettings] setOpacity:(opacity_val/100)]
             }
-            log(opacity_val);
+            //log(opacity_val);
             break;
     }
   },

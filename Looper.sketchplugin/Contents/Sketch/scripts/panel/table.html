@@ -13,7 +13,7 @@
         <div class="settings-panel">
           <div class="block">
             <div class="block__content">
-              <div class="form_cont">
+              <div class="form_cont" id="count_div">
                     <div class="form-field-label" >Duplication count</div>
                     <div id="input_count_txt_div">
                       <label class="fl fl_cor">Number of copies</label>
@@ -23,12 +23,10 @@
               </div>
 
               <div class="form_cont">
-                    <div class="form-field-label">Scale</div>
-                    
-                    <label>
+                    <div class="form-field-label-new">
                       <input type="checkbox" id="input_scale_toggle" class="chcBox">
-                      <span>Scale selection</span>
-                    </label>
+                      Scale  <span class="grey_txt sub_text">while duplicating</span>
+                    </div>
 
                     <div id="input_scale_controls">
 
@@ -70,17 +68,15 @@
 
 
               <div class="form_cont">
-                    <div class="form-field-label">Move</div>
-                    
-                    <label>
+                    <div class="form-field-label-new">
                       <input type="checkbox" id="input_move_toggle" class="chcBox">
-                      <span>Move selection</span>
-                    </label>
-
+                      Move <span class="grey_txt sub_text">while duplicating</span>
+                    </div>
+                    
                     <div id="input_move_controls">
                         
                         <div class="ui1">
-                            <label class="fl fl_cor">Increment by</label>
+                            <label class="fl fl_cor">Direction</label>
                             <select id="input_move_dropdown" class="ui_dropdown fr">
                               <option value="Horizontally">Horizontally</option>
                               <option value="Vertically">Vertically</option>
@@ -107,11 +103,44 @@
                               <input type="text" id="input_move_txt_3" value="20" size="5" class="fr">
                             </div>
                         </div>
-
-                        
                     </div>
               </div>
                   
+
+
+
+
+              <div class="form_cont">
+                    <div class="form-field-label-new">
+                      <input type="checkbox" id="input_grid_toggle" class="chcBox">
+                      Form a grid
+                    </div>
+
+                    
+                        <div id="input_move_txt_3_div" class="ui1">
+                            <div class="ui3">
+                              <label class="fl label-adjust">No. of Cols</label>
+                              <input type="text" id="input_grid_txt_c" value="4" size="5" class="fr">
+                            </div>
+                            <div class="ui3">
+                              <label class="fl label-adjust">No. of Rows</label>
+                              <input type="text" id="input_grid_txt_r" value="4" size="5" class="fr">
+                            </div>
+                            <div class="ui3">
+                              <label class="fl label-adjust">Horizontal margin <span class="grey_txt">(px)</span></label>
+                              <input type="text" id="input_grid_txt_x" value="50" size="5" class="fr">
+                            </div>
+                            <div class="ui3" style="margin-bottom:-6px;">
+                              <label class="fl label-adjust">Vertical margin <span class="grey_txt">(px)</span></label>
+                              <input type="text" id="input_grid_txt_y" value="50" size="5" class="fr">
+                            </div>
+                        </div>
+                    
+              </div>
+
+
+
+
             
               
             </div>
@@ -122,12 +151,11 @@
           <div class="block">
             <div class="block__content">
                   <div class="form-field form_cont">
-                        <div class="form-field-label">Rotate</div>
-                        
-                        <label>
+                        <div class="form-field-label-new">
                           <input class="chcBox" type="checkbox" id="input_angle_checkbox_1" checked>
-                          <span>Rotate selection</span>
-                        </label>
+                          Rotate <span class="grey_txt sub_text">while duplicating</span>
+                        </div>
+                        
                         
                         <div id="input_angle_controls">
                               

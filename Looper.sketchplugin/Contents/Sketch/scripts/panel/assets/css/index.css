@@ -117,6 +117,11 @@ html {
   color: #0091EA;
   margin-bottom: 8px;
 }
+.form-field-label-new {
+  font-weight: 500;
+  font-size: 14px;
+  color: #0091EA;
+}
 .ui_txt {
   padding: 2px;
   margin-top: 4px;
@@ -183,4 +188,11 @@ label {
 .preview {
   margin: 7px;
   padding-left: 4px;
+}
+.label-adjust {
+  margin-top: 2px;
+}
+.sub_text {
+  font-size: 12px;
+  font-style: italic;
 }
