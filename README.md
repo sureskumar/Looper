@@ -51,6 +51,8 @@ Rotation angle can be incremented in a linear fashion, randomly or can be set to
 ### Move
 Selected group or layer can be moved Horizontally, Vertically and Diagonally with a set increment value. Duplicated items can also be distributed randomly within a given dimension (width & height)
 
+### Form a grid
+Duplicate the selected group or layer to form a grid. Number of columns, rows, horizontal margin and vertical margin can be manipulated. You can also alter other properties like opacity, rotate and scale to the grid elements.
 
 ## Examples
 ![Looper sample](http://www.sureskumar.com/looper/github_imgs/looper_example_16_exp.jpg)
