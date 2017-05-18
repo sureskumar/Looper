@@ -291,7 +291,7 @@ MD.extend({
     var loopedOnce = 0;
     return this.MDPanel({
       url: this.pluginSketch + "/panel/table.html",
-      width: 448,
+      width: 473,
       height: 495,
       data: data,
       identifier: 'com.google.material.pattern',
