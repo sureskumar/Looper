@@ -3,10 +3,12 @@
 Looper is a sketch plugin that helps automate duplication of groups and layers. One can control properties like Rotate, Scale and Opacity while duplicating. This powerful combination enables artists and designers to create interesting geometric and organic patterns.
 
 <a target="_blank" href="https://www.youtube.com/channel/UCzm9iVAvS9rVn5ZyZSbrIVQ">
-<img src="http://www.sureskumar.com/looper/github_imgs/looper_2.gif">
+	<img target="_blank" src="http://www.sureskumar.com/looper/github_imgs/looper.gif">
 </a>
 
-![Looper banner](http://www.sureskumar.com/looper/github_imgs/looper_2.gif)
+<a target="_blank" href="https://www.youtube.com/channel/UCzm9iVAvS9rVn5ZyZSbrIVQ">
+	<img target="_blank" src="http://www.sureskumar.com/looper/github_imgs/looper_2.gif">
+</a>
 
 <a target="_blank" href="https://www.youtube.com/channel/UCzm9iVAvS9rVn5ZyZSbrIVQ">Demo videos</a>
 
