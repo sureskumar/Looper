@@ -430,6 +430,87 @@
   }
 
 
+
+
+  _incrementTxtValue = function (txt_id, small_inc, large_inc, flt) {
+      $(txt_id).on('keydown', function (event) {
+
+            if(flt) {
+              var t_val = parseFloat($(txt_id).val().trim());
+            } else {
+              var t_val = parseInt($(txt_id).val().trim());
+            }
+
+            if (event.shiftKey && event.which == 38) { 
+                t_val = t_val + large_inc;
+                if(flt) {
+                  t_val = _roundIt(t_val);
+                }
+                $(txt_id).val(t_val);
+            } else if (event.shiftKey && event.which == 40) { 
+                if(t_val > large_inc) {
+                  t_val = t_val - large_inc;
+                }
+                if(flt) {
+                  t_val = _roundIt(t_val);
+                }
+                $(txt_id).val(t_val);
+            } else if (event.keyCode == 38) {
+                t_val = t_val + small_inc;
+                if(flt) {
+                  t_val = _roundIt(t_val);
+                }
+                $(txt_id).val(t_val);
+            } else if(event.keyCode == 40) {
+                if(t_val > small_inc) {
+                  t_val = t_val - small_inc;  
+                }
+                if(flt) {
+                  t_val = _roundIt(t_val);
+                }
+                $(txt_id).val(t_val);
+            }
+
+            _submit();
+
+            $(txt_id).focus();
+
+      });
+  }
+
+  _roundIt = function (num) {
+      return Math.round( num * 10 ) / 10;
+  }
+
+
+    // Increment Textbox
+      // Count
+      _incrementTxtValue('#input_count_txt', 1, 10, false);
+
+      // Scale
+      _incrementTxtValue('#input_scale_txt_1', 1, 10, false);
+      _incrementTxtValue('#input_scale_txt_2', 1, 10, false);
+      _incrementTxtValue('#input_scale_txt_3', 1, 10, false);
+
+      // Move
+      _incrementTxtValue('#input_move_txt_1', 1, 10, false);
+      _incrementTxtValue('#input_move_txt_2', 1, 10, false);
+      _incrementTxtValue('#input_move_txt_3', 1, 10, false);
+
+      // Grid
+      _incrementTxtValue('#input_grid_txt_c', 1, 10, false);
+      _incrementTxtValue('#input_grid_txt_r', 1, 10, false);
+      _incrementTxtValue('#input_grid_txt_x', 1, 10, false);
+      _incrementTxtValue('#input_grid_txt_y', 1, 10, false);
+
+      // Rotation
+      _incrementTxtValue('#input_angle_txt', 1, 10, false);
+      _incrementTxtValue('#input_angle_sin_val', 0.1, 1, true);
+      _incrementTxtValue('#input_angle_rnd_val', 1, 10, false); 
+
+  
+  
+
   _toggleOpacity();
   _toggleScaleDropdown();
   _toggleMoveDropdown();
