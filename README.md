@@ -1,4 +1,5 @@
 # Looper v2.0 `⌘ + L`
+[![Download from Sketchpacks.com](https://badges.sketchpacks.com/plugins/com.sureskumar.sketch.looper/version.svg)](https://api.sketchpacks.com/v1/plugins/com.sureskumar.sketch.looper/download) [![Compatible Sketch Version](https://badges.sketchpacks.com/plugins/com.sureskumar.sketch.looper/compatibility.svg)](https://sketchpacks.com/sureskumar/Looper)
 
 Looper is a sketch plugin that helps automate duplication of groups and layers. One can control properties like Rotate, Scale and Opacity while duplicating. This powerful combination enables artists and designers to create interesting geometric and organic patterns.
 
