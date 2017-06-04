@@ -218,6 +218,12 @@ MD.extend({
           options.callback(data);
           result = true;
         }
+        if (request == "cancelPanel") {
+          var data = JSON.parse(decodeURI(windowObject.valueForKey("MDData")));
+          options.callback(data, 1);
+          result = true;
+          windowObject.evaluateWebScript("window.location.hash = 'close';");
+        }
         if (request == "closePanel") {
             windowObject.evaluateWebScript("window.location.hash = 'close';");
         }
@@ -296,11 +302,14 @@ MD.extend({
       data: data,
       identifier: 'com.google.material.pattern',
       floatWindow: false,
-      callback: function (data) {
+      callback: function (data, cl) {
         self.configs = self.setConfigs({
           table: data
         });
         if(self.configs) {  
+            if(cl == 1) {
+              log("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Received");
+            }
              if(loopedOnce == 1) {
                   var layers = MD.current.layers()
                   for (var ia=0; ia < [layers count]; ia++) {
@@ -499,6 +508,7 @@ MD.extend({
         var grid_old_x = [frame x];
         var grid_old_y = [frame y];
         var grid_old_h = [frame height];
+        var grid_old_w = [frame width];
 
         var tempCount = 0;  
         var counter = 0;
@@ -564,13 +574,20 @@ MD.extend({
                     //Random
                     var r_temp = Math.floor(Math.random() * scale_rnd);
                     //log("scale_rnd: "+r_temp);
-                    newWidth = Math.floor(oldWidth + r_temp);
-                    newHeight = Math.floor(oldHeight + r_temp);
+                    if(Math.random() > 0.5) {
+                      newWidth = Math.floor(grid_old_w + r_temp);
+                      newHeight = Math.floor(grid_old_h + r_temp);
+                    } else {
+                      newWidth = Math.floor(grid_old_w - r_temp);
+                      newHeight = Math.floor(grid_old_h - r_temp);
+                    }
+                    
                     break;
                 case 2:
                     //Scale PX
                     newWidth = Math.floor(oldWidth) + Math.floor(scale_px);
-                    newHeight = Math.floor(oldHeight) + Math.floor(scale_px);
+                    var scale_ratio = newWidth / oldWidth;
+                    newHeight = Math.floor(oldHeight) * scale_ratio;
                     //log('newWidth: ' + newWidth);
                     //log('newHeight: ' + newHeight);
                     break;

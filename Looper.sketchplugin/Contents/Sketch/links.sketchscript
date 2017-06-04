@@ -1,0 +1,12 @@
+function openURL(url){
+  var nsurl = NSURL.URLWithString(url);
+  NSWorkspace.sharedWorkspace().openURL(nsurl)
+}
+
+function tutorials(){
+  openURL('https://www.youtube.com/channel/UCzm9iVAvS9rVn5ZyZSbrIVQ/videos');
+}
+
+function feedback(){
+  openURL('https://github.com/sureskumar/looper/issues/new');
+}

@@ -40,6 +40,12 @@
     MDAction('closePanel', options);
   }
 
+  _cancel = function () {
+    _looperDebug("Cancel button pressed");
+    var options = {};
+    MDAction('cancelPanel', options);
+  }
+
   _submit = function () {
       
     var loop_auto,
@@ -518,21 +524,26 @@
   _toggleAngleEnbale();
 
   
-  $('#submit').on('click', _submit);
+  $('#submit').on('click', _cancel);
   $('#close').on('click', _close);    
 
 
 
   _onChangeInput = function (element) {
     $(element).on('input',function() {
+      _submit();  
+      /*
       if ($('#preview_checkBox').is(':checked')) {
         _submit();  
       }
+      */
     });
   }
 
   _onChangeTrigger = function (element) {
     $(element).on('click',function() {
+        _submit();  
+      /*
       if ($('#preview_checkBox').is(':checked')) {
         $('#submit').hide();
         $("#close").html('Done');
@@ -541,10 +552,11 @@
           $('#submit').fadeTo( "fast", 1.0 );
           $("#close").html('Close');
       }
+      */
     });
   }
 
-  $('#submit').hide();
+  //$('#submit').hide();
     
 
   // Input updates
@@ -598,9 +610,11 @@
       _onChangeTrigger("#input_opacity_3");
 
       // Preview checkbox        
-      _onChangeTrigger("#preview_checkBox");
+      //_onChangeTrigger("#preview_checkBox");
 
-        
+    
+    //$('#preview_checkBox').hide();
+
     $('#input_grid_toggle').on('change', _toggleGridEnbale); // Grid toggle    
     $('#input_angle_checkbox_1').on('change', _toggleAngleEnbale); // Rotate toggle
     $("#input_rot_1").on('change', _toggleAngleAuto1); // Rotate automatic toggle

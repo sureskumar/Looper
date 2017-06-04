@@ -172,13 +172,13 @@ label {
   border: none;
 }
 .btnLoop {
-  background-color: #0091EA;
+  background-color: #E0E0E0;
   /* 077DFF */
-  color: #fff;
+  color: #444;
 }
 .btnClose{
-  background-color: #E0E0E0;
-  color: #444;
+  background-color: #0091EA;
+  color: #fff;
 }
 .btn:hover {
   border: none;

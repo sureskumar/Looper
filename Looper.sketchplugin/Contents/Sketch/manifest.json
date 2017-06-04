@@ -1,7 +1,7 @@
 {
 	"name": "Looper",
 	"identifier": "com.sureskumar.sketch.looper",
-	"version": "2.2.0",
+	"version": "2.3.0",
   	"compatibleVersion": "40.0",
   	"appcast": "http://www.sureskumar.com/looper/looper.xml",
 	"description": "Looper is a sketch plugin that helps automate duplication of groups and layers.",
@@ -9,17 +9,32 @@
 	"authorEmail": "sures.srinivasan@gmail.com",
 	"homepage": "http://www.sureskumar.com",
 	"menu": {
-		"isRoot": true,
+		"isRoot": false,
+		"shortcut" : "",
 		"items": [
-			"drawPattern"
+			"drawPattern",
+			"tutorials",
+			"feedback"
 		],
 		"title": "Looper"
 	},
 	"commands": [{
-		"name": "Looper",
+		"name": "Loop",
 		"shortcut": "cmd l",
 		"identifier": "drawPattern",
 		"handler": "drawPattern",
 		"script": "md.sketchscript"
+	},
+	{
+		"name": "Video Tutorials",
+		"identifier": "tutorials",
+		"handler": "tutorials",
+		"script": "links.sketchscript"
+	},
+	{
+		"name": "Feedback",
+		"identifier": "feedback",
+		"handler": "feedback",
+		"script": "links.sketchscript"
 	}]
 }
