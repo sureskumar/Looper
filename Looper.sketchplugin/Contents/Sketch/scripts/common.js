@@ -308,8 +308,21 @@ MD.extend({
         });
         if(self.configs) {  
             if(cl == 1) {
-              log("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Received");
-            }
+              var layers = MD.current.layers()
+                for (var ia=0; ia < [layers count]; ia++) {
+                    var layer = [layers objectAtIndex:ia]
+                    if(layer.objectID() == created_looper_group){
+                      layer.removeFromParent()
+                    }
+                }
+                for (var ib=0; ib < [layers count]; ib++) {
+                      var layer = [layers objectAtIndex:ib]
+                      if(layer.name() == ori_layer_name){
+                        layer.setIsVisible(1);
+                        [layer select:true byExpandingSelection:true];
+                      }
+                  }
+            } else {
              if(loopedOnce == 1) {
                   var layers = MD.current.layers()
                   for (var ia=0; ia < [layers count]; ia++) {
@@ -330,7 +343,8 @@ MD.extend({
               } else {
                   loopedOnce = 1;
                   MD.runLooper();
-              }          
+              }     
+            }     
         }
       },
     });
