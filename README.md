@@ -17,15 +17,7 @@ Looper is a sketch plugin that helps automate duplication of groups and layers. 
 ## Installation
 
 #### Recommended
-* Install via [Sketch Runner](http://sketchrunner.com/), [Sketchpacks](https://sketchpacks.com/sureskumar/looper/install), or [Sketch Toolbox](http://sketchtoolbox.com/) by searching for Looper.
-
-<a target="_blank" href="http://bit.ly/SketchRunnerWebsite">
-  <img width="160" height="41" src="http://bit.ly/RunnerBadgeBlue">
-</a>
-
-<a target="_blank" href="https://sketchpacks.com/sureskumar/looper/install">
-  <img width="160" height="41" src="http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png" >
-</a>
+* Install via Sketch Runner, [Sketchpacks](https://sketchpacks.com/sureskumar/looper/install), or Sketch Toolbox by searching for Looper.
 
 #### Old-Fashioned
 
