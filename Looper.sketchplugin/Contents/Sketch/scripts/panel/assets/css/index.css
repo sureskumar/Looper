@@ -103,7 +103,8 @@ html {
   margin-bottom: 3px;
   margin-left: 16px;
   position: fixed;
-  left: 166px;
+  left: -6px;
+  bottom: 4px;
 }
 .logo_in_footer_img {
   width: 82px;

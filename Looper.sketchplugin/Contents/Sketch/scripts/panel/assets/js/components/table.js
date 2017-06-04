@@ -272,6 +272,7 @@
           
     }
 
+    $('#close').focus();
 
   }
 
@@ -611,8 +612,8 @@
 
       // Preview checkbox        
       //_onChangeTrigger("#preview_checkBox");
-
     
+    $('#close').focus();
     //$('#preview_checkBox').hide();
 
     $('#input_grid_toggle').on('change', _toggleGridEnbale); // Grid toggle    

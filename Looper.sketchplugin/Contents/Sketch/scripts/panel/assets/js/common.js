@@ -3,12 +3,13 @@ $(function () {
     .keypress(function (event) {
         var eventObj = event || e,
             keyCode = eventObj.keyCode || eventObj.which;
-
+        /*
         if (keyCode == 13) {
             event.stopPropagation();
             $('#submit:not(:disabled)').click();
             return false;
         }
+        */
     });
 });
 
