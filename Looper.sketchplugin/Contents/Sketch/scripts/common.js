@@ -651,7 +651,7 @@ MD.extend({
                     grid_row_count = grid_row_count + 1;
                     if(grid_row_count >= grid_x) {
                       grid_row_count = 0;
-                      newXPos = grid_old_x;
+                      newXPos = Math.round(grid_old_x - ((newWidth - oldWidth) / 2));
                       newYPos = grid_old_y + position_grid_y_inc;
                       grid_old_y = newYPos;
                     } else {
