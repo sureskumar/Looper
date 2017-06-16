@@ -11,6 +11,8 @@ created_looper_group,
 ori_x, 
 ori_y;
 var opacity_val = 0;
+var debugMode = false;
+var debugInsideLoop = false;
 
 var MD = {
   init: function (context, command, args) {
@@ -351,6 +353,9 @@ MD.extend({
   },
 
   runLooper: function (loopingLayer) {
+
+    MD.superDebug("- - runLooper function triggered - -");
+
     // Globals
     var self = MD,
     selection = MD.context.selection;
@@ -378,78 +383,69 @@ MD.extend({
     // Get input from panel
       // COUNT
       loop = MD.configs.table.send_loop;
-      //log("loop: "+loop);
+      MD.superDebug("loop", loop);
 
       // ANGLE
       rotate_select = MD.configs.table.send_rotate_select;
-      //log("rotate_select: "+rotate_select);
+      MD.superDebug("rotate_select", rotate_select);
 
       angle = MD.configs.table.send_angle;
-      //log("angle: "+angle);
+      MD.superDebug("angle", angle);
 
       angle_choice = MD.configs.table.send_rotate_inc_perf;
-      //log("angle_choice: "+angle_choice);
+      MD.superDebug("angle_choice", angle_choice);
 
       angle_sin = MD.configs.table.send_rotate_sin;
-      //log("angle_sin: "+angle_sin);
+      MD.superDebug("angle_sin", angle_sin);
 
       angle_rnd = MD.configs.table.send_rotate_rnd;
-      //log("angle_rnd: "+angle_rnd);
+      MD.superDebug("angle_rnd", angle_rnd);
 
       // OPACITY
       opacity = MD.configs.table.send_opacity;
-      //log("opacity: "+opacity);
+      MD.superDebug("opacity", opacity);
 
       // MOVE
       position = MD.configs.table.send_position;
-      //log("position: "+position);
+      MD.superDebug("position", position);
 
       position_inc = MD.configs.table.send_move_inc;
-      //log("position_inc: "+position_inc);
+      MD.superDebug("position_inc", position_inc);
 
       position_rnd_x = MD.configs.table.send_move_rnd_x;
-      //log("position_rnd_x: "+position_rnd_x);
+      MD.superDebug("position_rnd_x", position_rnd_x);
 
       position_rnd_y = MD.configs.table.send_move_rnd_y;
-      //log("position_rnd_y: "+position_rnd_y);
+      MD.superDebug("position_rnd_y", position_rnd_y);
 
 
       // GRID
       grid_x = Math.floor(MD.configs.table.send_grid_c);
       if(grid_x < 1) { grid_x = 1; }
-      //log("grid_x: "+grid_x);
+      MD.superDebug("grid_x", grid_x);
       
       grid_y = Math.floor(MD.configs.table.send_grid_r);
       if(grid_y < 1) { grid_y = 1; }
-      //log("grid_y: "+grid_y);
+      MD.superDebug("grid_y", grid_y);
 
       position_grid_x_inc = Math.floor(MD.configs.table.send_grid_x);
-      //log("position_grid_x_inc: "+position_grid_x_inc);
+      MD.superDebug("position_grid_x_inc", position_grid_x_inc);
 
       position_grid_y_inc = Math.floor(MD.configs.table.send_grid_y);
-      //log("position_grid_y_inc: "+position_grid_y_inc);
+      MD.superDebug("position_grid_y_inc", position_grid_y_inc);
 
       // SCALE
       scale = MD.configs.table.send_scale;
-      //log("scale: "+scale);
+      MD.superDebug("scale", scale);
 
       scale_px = MD.configs.table.send_scale_px;
-      //log("scale_px: "+scale_px);
+      MD.superDebug("scale_px", scale_px);
 
       scale_pr = MD.configs.table.send_scale_pr;
-      //scale_pr = scale_pr / 100;
-      //log("scale_pr: "+scale_pr);
+      MD.superDebug("scale_pr", scale_pr);
 
       scale_rnd = MD.configs.table.send_scale_rnd;
-      //log("scale_rnd: "+scale_rnd);
-
-      // Variable declaration
-      var ui_width = 200;
-      var ui_txtbox_width = 40;
-      var ui_line_height = 24;
-      var ui_section_margin = 20;
-      var ui_col_2 = ui_width;
-      var responseCode;
+      MD.superDebug("scale_rnd", scale_rnd);
 
       switch(opacity) {
           case 1:
@@ -468,205 +464,230 @@ MD.extend({
               break;
       }
 
-        //log('inside');
-        //log(opacity_val);
+      MD.superDebug("opacity_val", opacity_val);
 
-        // Get selected layer
-        var layer;
-        if(loopingLayer) {
-          layer = loopingLayer;
-        } else {
-          layer = selection[0];
-        }
+      // Get selected layer
+      MD.superDebug("loopingLayer", loopingLayer);
+      var layer;
+      if(loopingLayer) {
+        layer = loopingLayer;
+      } else {
+        layer = selection[0];
+      }
 
-        // Assign or get looping layer position
-        var frame = [layer frame];
-        if(ori_x) {
-          [frame setX: ori_x]
-            [frame setY: ori_y]
-        } else {
-          ori_x = [frame x];
-          ori_y = [frame y];
-        }
+      // Assign or get looping layer position
+      MD.superDebug("ori_x", ori_x);
+      MD.superDebug("ori_y", ori_y);
 
-        // Hide the original layer
-        layer.setIsVisible(0);
+      var frame = [layer frame];
+      if(ori_x) {
+        [frame setX: ori_x]
+        [frame setY: ori_y]
+      } else {
+        ori_x = [frame x];
+        ori_y = [frame y];
+      }
 
-        var layerName = layer.name();
-        if(!ori_layer_name) {
-          ori_layer_name = "original_" + layerName + "_" + Math.floor(Math.random() * 100000000);
-        }
-        layer.setName(ori_layer_name);
+      // Hide the original layer
+      layer.setIsVisible(0);
+      var layerName = layer.name();
+      MD.superDebug("ori_layer_name", ori_layer_name);
+      if(!ori_layer_name) {
+        ori_layer_name = "original_" + layerName + "_" + Math.floor(Math.random() * 100000000);
+      }
+      layer.setName(ori_layer_name);
 
-        // Create a group
-        groupLayer = MSLayerGroup.new();
-        groupLayer.setName(layerName + " Group");
+      // Create a group
+      groupLayer = MSLayerGroup.new();
+      groupLayer.setName(layerName + " Group");
 
-        // Duplicate just the first copy
-        layer.duplicate();
-        layer.setIsVisible(1);
-        layer.setName("duplicate_1_" + layerName);
+      // Duplicate just the first copy
+      layer.duplicate();
+      layer.setIsVisible(1);
+      layer.setName("duplicate_1_" + layerName);
 
-        // Add it to the group
-        MD.current.removeLayer(layer);
-        groupLayer.addLayers([layer]);
+      // Add it to the group
+      MD.current.removeLayer(layer);
+      groupLayer.addLayers([layer]);
 
-        // Set opacity for the first copy
-        MD.setOpacity(layer, loop, opacity, 1);
+      // Set opacity for the first copy
+      MD.setOpacity(layer, loop, opacity, 1);
 
-        // Variable declarations
-        var frame, oldWidth, oldHeight, oldXPos, oldYPos, newWidth, newHeight, newXPos, newYPos, rotation, newRotation, cur_angle;
-        var grid_row_count = 0;
+      // Variable declarations
+      var frame, oldWidth, oldHeight, oldXPos, oldYPos, newWidth, newHeight, newXPos, newYPos, rotation, newRotation, cur_angle;
+      var grid_row_count = 0;
 
-        frame = [layer frame];
-        var grid_old_x = [frame x];
-        var grid_old_y = [frame y];
-        var grid_old_h = [frame height];
-        var grid_old_w = [frame width];
+      frame = [layer frame];
+      var grid_old_x = [frame x];
+      var grid_old_y = [frame y];
+      var grid_old_h = [frame height];
+      var grid_old_w = [frame width];
 
-        var tempCount = 0;  
-        var counter = 0;
+      MD.superDebug("grid_old_x", grid_old_x);
+      MD.superDebug("grid_old_y", grid_old_y);
+      MD.superDebug("grid_old_h", grid_old_h);
+      MD.superDebug("grid_old_w", grid_old_w);
 
-        if(loop < 2) {
-          loop = 1;
-        }
+      var tempCount = 0;  
+      var counter = 0;
 
-        if(position == 6) {
-          loop = grid_x * grid_y;
-        }
+      if(loop < 2) {
+        loop = 1;
+      }
 
+      if(position == 6) {
+        loop = grid_x * grid_y;
+      }
 
-        for(var j = 0; j < loop-1; j++){
-            // Duplicate
-            if(loop > 1) {
-              layer.duplicate();
-              tempCount = j+2;
-              layer.setName("duplicate_" + tempCount + "_" + layerName);
-            }
-            // Opacity for rest of the layers
-            MD.setOpacity(layer, loop, opacity, j+2);
+      for(var j = 0; j < loop-1; j++){
 
-            // Rotate
-            rotation = layer.rotation();
-            switch(angle_choice) {
-                case 0:
-                    //Linear
-                    cur_angle = angle;      
-                    break;
+          MD.superDebug("j", j, 0);
+
+          // Duplicate
+          if(loop > 1) {
+            layer.duplicate();
+            tempCount = j+2;
+            layer.setName("duplicate_" + tempCount + "_" + layerName);
+          }
+          MD.superDebug("tempCount", tempCount, 0);
+
+          // Opacity for rest of the layers
+          MD.setOpacity(layer, loop, opacity, j+2);
+
+          // Rotate
+          rotation = layer.rotation();
+          MD.superDebug("rotation", rotation, 0);
+          switch(angle_choice) {
+              case 0:
+                  //Linear
+                  cur_angle = angle;      
+                  break;
+            case 1:
+                  //Sin
+                  var increase = Math.PI * angle_sin / 100;
+                  MD.superDebug("increase", increase, 0);
+                  cur_angle = Math.sin(counter);
+                  counter += increase;
+                  MD.superDebug("counter", counter, 0);
+                  break;
+              case 2:
+                  //Random
+                  cur_angle = (Math.random(angle-angle_rnd, angle+angle_rnd) * 100);    
+                  break;
+          }
+
+          MD.superDebug("cur_angle", cur_angle, 0);
+
+          if(rotate_select == 0) {
+            newRotation = rotation - cur_angle;
+            MD.superDebug("newRotation", newRotation, 0);
+            layer.setRotation(newRotation);
+          }
+
+          // Dimension
+          frame = [layer frame];
+          oldWidth = [frame width];
+          oldHeight = [frame height];
+          oldXPos = [frame x];
+          oldYPos = [frame y];
+
+          MD.superDebug("oldWidth", oldWidth, 0);
+          MD.superDebug("oldHeight", oldHeight, 0);
+          MD.superDebug("oldXPos", oldXPos, 0);
+          MD.superDebug("oldYPos", oldYPos, 0);
+
+          switch(scale) {
+              case 0:
+                  //No Scale
+                  newWidth = oldWidth;
+                  newHeight = oldHeight;
+                  break;
               case 1:
-                    //Sin
-                    var increase = Math.PI * angle_sin / 100;
-                    cur_angle = Math.sin(counter);
-                    counter += increase;
-                    //log('cur_angle: ' + cur_angle);
-                    break;
-                case 2:
-                    //Random
-                    cur_angle = (Math.random(angle-angle_rnd, angle+angle_rnd) * 100);    
-                    break;
-            }
+                  //Random
+                  var r_temp = Math.floor(Math.random() * scale_rnd);
+                  MD.superDebug("r_temp", r_temp, 0);
+                  if(Math.random() > 0.5) {
+                    newWidth = Math.floor(grid_old_w + r_temp);
+                    newHeight = Math.floor(grid_old_h + r_temp);
+                  } else {
+                    newWidth = Math.floor(grid_old_w - r_temp);
+                    newHeight = Math.floor(grid_old_h - r_temp);
+                  }
+                  break;
+              case 2:
+                  //Scale PX
+                  newWidth = Math.floor(oldWidth) + Math.floor(scale_px);
+                  var scale_ratio = newWidth / oldWidth;
+                  MD.superDebug("scale_ratio", scale_ratio, 0);
+                  newHeight = Math.floor(oldHeight) * scale_ratio;
+                  break;
+              case 3:
+                  //Scale Percentage
+                  newWidth = Math.round(oldWidth * (scale_pr / 100));
+                  newHeight = Math.round(oldHeight * (scale_pr / 100));
+                  break;
+          }
 
-            if(rotate_select == 0) {
-              newRotation = rotation - cur_angle;
-              layer.setRotation(newRotation);
-            }
+          MD.superDebug("newWidth", newWidth, 0);
+          MD.superDebug("newHeight", newHeight, 0);
 
-            // Dimension
-            frame = [layer frame];
-            oldWidth = [frame width];
-            oldHeight = [frame height];
-            oldXPos = [frame x];
-            oldYPos = [frame y];
 
-            switch(scale) {
-                case 0:
-                    //No Scale
-                    newWidth = oldWidth;
-                    newHeight = oldHeight;
-                    break;
-                case 1:
-                    //Random
-                    var r_temp = Math.floor(Math.random() * scale_rnd);
-                    //log("scale_rnd: "+r_temp);
-                    if(Math.random() > 0.5) {
-                      newWidth = Math.floor(grid_old_w + r_temp);
-                      newHeight = Math.floor(grid_old_h + r_temp);
-                    } else {
-                      newWidth = Math.floor(grid_old_w - r_temp);
-                      newHeight = Math.floor(grid_old_h - r_temp);
-                    }
-                    
-                    break;
-                case 2:
-                    //Scale PX
-                    newWidth = Math.floor(oldWidth) + Math.floor(scale_px);
-                    var scale_ratio = newWidth / oldWidth;
-                    newHeight = Math.floor(oldHeight) * scale_ratio;
-                    //log('newWidth: ' + newWidth);
-                    //log('newHeight: ' + newHeight);
-                    break;
+          // Position
+        switch(position) {
+              case 0:
+                  //From center
+                  newXPos = oldXPos - ((newWidth - oldWidth) / 2);
+                  newYPos = oldYPos - ((newHeight - oldHeight) / 2);
+                  break;
+              case 1:
+                  //From corner
+                  newXPos = oldXPos;
+                  newYPos = oldYPos;
+                  break;
+              case 2:
+                  //Horizontal
+                  newXPos = oldXPos + Math.floor(position_inc);
+                  newYPos = Math.round(oldYPos - ((newHeight - oldHeight) / 2));
+                  break;
                 case 3:
-                    //Scale Percentage
-                    newWidth = Math.round(oldWidth * (scale_pr / 100));
-                    newHeight = Math.round(oldHeight * (scale_pr / 100));
-                    //log('newWidth: ' + newWidth);
-                    //log('newHeight: ' + newHeight);
-                    break;
-            }
-
-            // Position
-          switch(position) {
-                case 0:
-                    //From center
-                    newXPos = oldXPos - ((newWidth - oldWidth) / 2);
-                    newYPos = oldYPos - ((newHeight - oldHeight) / 2);
-                    break;
-                case 1:
-                    //From corner
-                    newXPos = oldXPos;
-                    newYPos = oldYPos;
-                    break;
-                case 2:
-                    //Horizontal
-                    newXPos = oldXPos + Math.floor(position_inc);
+                  //Vertical
+                  newXPos = Math.round(oldXPos - ((newWidth - oldWidth) / 2));
+                  newYPos = oldYPos + Math.floor(position_inc);
+                  break;
+                case 4:
+                  //Diagonal
+                  newXPos = oldXPos + Math.floor(position_inc);
+                  newYPos = oldYPos + Math.floor(position_inc);
+                  break;
+                case 5:
+                  //Random
+                  newXPos = Math.round(Math.floor((Math.random() * position_rnd_x) + 1));
+                  newYPos = Math.round(Math.floor((Math.random() * position_rnd_y) + 1));    
+                  break;
+                case 6:
+                  //Grid
+                  grid_row_count = grid_row_count + 1;
+                  if(grid_row_count >= grid_x) {
+                    grid_row_count = 0;
+                    newXPos = Math.round(grid_old_x - ((newWidth - oldWidth) / 2));
+                    newYPos = grid_old_y + position_grid_y_inc;
+                    grid_old_y = newYPos;
+                  } else {
+                    newXPos = oldXPos + Math.floor(position_grid_x_inc);
                     newYPos = Math.round(oldYPos - ((newHeight - oldHeight) / 2));
-                    break;
-                  case 3:
-                    //Vertical
-                    newXPos = Math.round(oldXPos - ((newWidth - oldWidth) / 2));
-                    newYPos = oldYPos + Math.floor(position_inc);
-                    break;
-                  case 4:
-                    //Diagonal
-                    newXPos = oldXPos + Math.floor(position_inc);
-                    newYPos = oldYPos + Math.floor(position_inc);
-                    break;
-                  case 5:
-                    //Random
-                    newXPos = Math.round(Math.floor((Math.random() * position_rnd_x) + 1));
-                    newYPos = Math.round(Math.floor((Math.random() * position_rnd_y) + 1));    
-                    break;
-                  case 6:
-                    //Grid
-                    grid_row_count = grid_row_count + 1;
-                    if(grid_row_count >= grid_x) {
-                      grid_row_count = 0;
-                      newXPos = Math.round(grid_old_x - ((newWidth - oldWidth) / 2));
-                      newYPos = grid_old_y + position_grid_y_inc;
-                      grid_old_y = newYPos;
-                    } else {
-                      newXPos = oldXPos + Math.floor(position_grid_x_inc);
-                      newYPos = Math.round(oldYPos - ((newHeight - oldHeight) / 2));
-                    }
-                    break;
-            }
+                  }
+                  break;
+          }
 
-            [frame setWidth: newWidth]
-            [frame setHeight: newHeight]
-            [frame setX: newXPos]
-            [frame setY: newYPos]
+          MD.superDebug("newXPos", newXPos, 0);
+          MD.superDebug("newYPos", newYPos, 0);
 
-        }
+          [frame setWidth: newWidth]
+          [frame setHeight: newHeight]
+          [frame setX: newXPos]
+          [frame setY: newYPos]
+
+      }
 
       // Create a parent group called 'Looper_Group'
       groupLayer1 = MSLayerGroup.new();
@@ -680,38 +701,11 @@ MD.extend({
       MD.current.removeLayer(groupLayer);
       groupLayer1.addLayers([groupLayer]);
 
-      
-      // ---- Add parameters as text layer in the group
-      /*
-      var str = "No. of copies: "+loop+"\n"+;
-      var txt = MD.addText(str);
-      txt.setName("Looper parameters");
-      txt.setIsVisible(0);
-      groupLayer1.addLayer(txt);
-
-      var str = "Position (0-Center, 1-Corner, 2-Hori, 3-Vert, 4-Diagonal, 5-Random): "+position+"\n"+
-      "Position Random Width (position_rnd_x): "+position_rnd_x+"\n"+
-      "Position Random Height (position_rnd_y): "+position_rnd_y+"\n"+
-      "Move position increment (position_inc): "+position_inc+"\n"+
-      "-\n"+
-      "Duplication count (loop): "+loop+"\n"+
-      "-\n"+
-      "Angle Choice (0-Linear, 1-Sin, 2-Random): "+angle_choice+"\n"+
-      "Angle: "+angle+"\n"+
-      "Angle Sin: "+angle_sin+"\n"+
-      "Angle Rand: "+angle_rnd+"\n"+
-      "-\n"+
-      "Scale (0-No, 1-Random, 2-Pixel, 3-Percentage): "+scale+"\n"+
-      "Scale_rnd: "+scale_inc+"\n"+
-      "Scale_px: "+scale_inc+"\n"+
-      "Scale_pr: "+scale_inc+"\n"+
-      "-\n"+
-      "Opacity (1-No, 2-Random, 3-0to1, 4-1to0): "+opacity+"\n";
-      */
-
       // Resize group to fit all children
       groupLayer.resizeToFitChildrenWithOption(0);
       groupLayer1.resizeToFitChildrenWithOption(0);
+
+      MD.superDebug("- - runLooper function completed - -");
       
   },
 
@@ -728,33 +722,52 @@ MD.extend({
         case 3:
             //Opacity 0 to 1
             if(jj > 0) {
+              MD.superDebug("jj", jj, 0);
               var opa_inc;
               opa_inc = 100/lop;
+              MD.superDebug("opa_inc", opa_inc, 0);
               opacity_val = opacity_val + opa_inc;
+              MD.superDebug("opacity_val", opacity_val, 0);
               [[[l style] contextSettings] setOpacity:(opacity_val/100)]
             }
-            //log(opacity_val);
             break;
         case 4:
             //Opacity 1 to 0
             if(jj > 0) {
+              MD.superDebug("jj", jj, 0);
               var opa_inc;
               opa_inc = 100/lop;
+              MD.superDebug("opa_inc", opa_inc, 0);
               opacity_val = opacity_val - opa_inc;
+              MD.superDebug("opacity_val", opacity_val, 0);
               [[[l style] contextSettings] setOpacity:(opacity_val/100)]
             }
-            //log(opacity_val);
             break;
     }
   },
 
-  addText: function(v)
+  superDebug: function( lbl, val, insideLoop )
   {
-    var txt;
-    txt = MSTextLayer.new();
-    txt.setStringValue(""+v);
-    return txt;
+      if(debugMode) {
+          if(isNaN(insideLoop)) {
+              if(isNaN(val)) {
+                  log("LOOPER DEBUG // " + lbl);
+              } else {
+                  log("LOOPER DEBUG // " + lbl + ": " + val);  
+              }
+          } else {
+              if(debugInsideLoop) {
+                  if(isNaN(val)) {
+                  log("LOOPER DEBUG // " + lbl);
+                  } else {
+                      log("LOOPER DEBUG // " + lbl + ": " + val);  
+                  } 
+              }
+          }
+      }
   }
+
+
 
 });
 
