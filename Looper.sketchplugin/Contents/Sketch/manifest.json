@@ -5,6 +5,7 @@
   	"compatibleVersion": "40.0",
   	"appcast": "http://www.sureskumar.com/looper/looper.xml",
 	"description": "Looper is a sketch plugin that helps automate duplication of groups and layers.",
+	"icon" : "http://www.sureskumar.com/looper/github_imgs/logo.png",
 	"author": "Sures Kumar",
 	"authorEmail": "sures.srinivasan@gmail.com",
 	"homepage": "http://www.sureskumar.com",
