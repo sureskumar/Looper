@@ -221,12 +221,14 @@ MD.extend({
           result = true;
         }
         if (request == "cancelPanel") {
+          sendEvent(MD.context, 'UI Component', 'CANCEL button pressed');
           var data = JSON.parse(decodeURI(windowObject.valueForKey("MDData")));
           options.callback(data, 1);
           result = true;
           windowObject.evaluateWebScript("window.location.hash = 'close';");
         }
         if (request == "closePanel") {
+            sendEvent(MD.context, 'UI Component', 'DONE button pressed');
             windowObject.evaluateWebScript("window.location.hash = 'close';");
         }
         if (request == 'drag-end') {
@@ -388,12 +390,14 @@ MD.extend({
       // ANGLE
       rotate_select = MD.configs.table.send_rotate_select;
       MD.superDebug("rotate_select", rotate_select);
+      //sendEvent(MD.context, 'Parameter: rotate_select', rotate_select);
 
       angle = MD.configs.table.send_angle;
       MD.superDebug("angle", angle);
 
       angle_choice = MD.configs.table.send_rotate_inc_perf;
       MD.superDebug("angle_choice", angle_choice);
+      //sendEvent(MD.context, 'Parameter: angle_choice', angle_choice);
 
       angle_sin = MD.configs.table.send_rotate_sin;
       MD.superDebug("angle_sin", angle_sin);
@@ -404,10 +408,12 @@ MD.extend({
       // OPACITY
       opacity = MD.configs.table.send_opacity;
       MD.superDebug("opacity", opacity);
+      //sendEvent(MD.context, 'Parameter: opacity', opacity);
 
       // MOVE
       position = MD.configs.table.send_position;
       MD.superDebug("position", position);
+      //sendEvent(MD.context, 'Parameter: position', position);
 
       position_inc = MD.configs.table.send_move_inc;
       MD.superDebug("position_inc", position_inc);
@@ -437,6 +443,7 @@ MD.extend({
       // SCALE
       scale = MD.configs.table.send_scale;
       MD.superDebug("scale", scale);
+      //sendEvent(MD.context, 'Parameter: scale', scale);
 
       scale_px = MD.configs.table.send_scale_px;
       MD.superDebug("scale_px", scale_px);
@@ -446,6 +453,8 @@ MD.extend({
 
       scale_rnd = MD.configs.table.send_scale_rnd;
       MD.superDebug("scale_rnd", scale_rnd);
+
+      
 
       switch(opacity) {
           case 1:
@@ -771,36 +780,108 @@ MD.extend({
 
 });
 
-
+var app = [NSApplication sharedApplication];
 
 MD["Pattern"] = function()
-{
+{ 
+    
+
     var self = MD,
     selection = MD.context.selection;   
-
     var self = this;
+
+    this.scriptPath = MD.context.scriptPath;
+    this.scriptPathRoot = this.scriptPath.stringByDeletingLastPathComponent();
+    this.scriptResourcesPath = this.scriptPathRoot.stringByDeletingLastPathComponent() + '/Resources';
+    var icon = NSImage.alloc().initByReferencingFile(this.scriptResourcesPath + '/' + "icon.png");
+
+
     var runPLugin = function()
     {
-       var execute_code = 1;
-       if (selection.count() <= 0) {
-          MD.document.showMessage("Select a layer or group to duplicate. Cheers!");
-          execute_code = 0;
-        } else if (selection.count() > 1) {
-          MD.document.showMessage("Select only one layer or group to duplicate. Cheers!");
-          execute_code = 0;
-        } else {
-            for(var i = 0; i < selection.count(); i++){
-              var layer = selection[i];
-              if (layer == MD.artboard) {
-                MD.document.showMessage("Select a layer or group to duplicate. Cheers!");
-                    execute_code = 0;
-              }
-          }
-        }
+      
+      sendEvent(MD.context, 'Trigger', 'Plugin triggered');
 
-        if(execute_code == 1) {
-          MD.patternPanel();
-        }        
+      var execute_code = 1;
+      if (selection.count() <= 0) {
+        sendEvent(MD.context, 'Error', 'selection.count() <= 0');
+        showDialog("Looper", "Select a layer or group to duplicate. Cheers!");
+        execute_code = 0;
+      } else if (selection.count() > 1) {
+        sendEvent(MD.context, 'Error', 'selection.count() > 1');
+        showDialog("Looper", "Select only one layer or group to duplicate. Cheers!");
+        execute_code = 0;
+      } else {
+          for(var i = 0; i < selection.count(); i++){
+            var layer = selection[i];
+            if (layer == MD.artboard) {
+              sendEvent(MD.context, 'Error', 'layer == MD.artboard');
+              showDialog("Looper", "Select a layer or group to duplicate. Cheers!");
+                  execute_code = 0;
+            }
+        }
+      }
+
+      if(execute_code == 1) {
+        sendEvent(MD.context, 'Trigger', 'Modal triggered');
+        MD.patternPanel();
+      }        
     }
+    
+    var showDialog = function(title, informativeText) {
+      var alert = [[NSAlert alloc] init]
+      [alert setMessageText: title]
+      [alert setInformativeText: informativeText]
+      [alert addButtonWithTitle: "OK"] // 1000
+      alert.setIcon(icon);
+      var responseCode = [alert runModal]
+    }
+    
   runPLugin();
+}
+
+var kUUIDKey = 'google.analytics.uuid'
+var uuid = NSUserDefaults.standardUserDefaults().objectForKey(kUUIDKey)
+if (!uuid) {
+  uuid = NSUUID.UUID().UUIDString()
+  NSUserDefaults.standardUserDefaults().setObject_forKey(uuid, kUUIDKey)
+}
+
+function jsonToQueryString(json) {
+  return '?' + Object.keys(json).map(function(key) {
+    return encodeURIComponent(key) + '=' + encodeURIComponent(json[key]);
+  }).join('&')
+}
+
+var index = function (context, trackingId, hitType, props) {
+  var payload = {
+    v: 1,
+    tid: trackingId,
+    ds: 'Sketch%20' + NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString"),
+    cid: uuid,
+    t: hitType,
+    an: context.plugin.name(),
+    aid: context.plugin.identifier(),
+    av: context.plugin.version()
+  }
+  if (props) {
+    Object.keys(props).forEach(function (key) {
+      payload[key] = props[key]
+    })
+  }
+
+  var url = NSURL.URLWithString(
+    NSString.stringWithFormat("https://www.google-analytics.com/collect%@", jsonToQueryString(payload))
+  )
+
+  if (url) {
+    NSURLSession.sharedSession().dataTaskWithURL(url).resume()
+  }
+}
+
+var key = 'UA-96570498-1';
+var sendEvent = function (context, category, action, label) {
+  var payload = {};
+  payload.ec = category;
+  payload.ea = action;
+  return index(context, key, 'event', payload);
 }
