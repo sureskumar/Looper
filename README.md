@@ -33,12 +33,6 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 
 <a target="_blank" href="https://www.jianshu.com/p/094d3e742de3">Tutorial by Jianshu (Chinese)</a>
 
-## Want to say thanks? Share your work!
-#### Please share what you create in one of the channels below. Cheers!
-* Twitter: #builtwithlooper and/or @sketchlooper
-* [Email](mailto:sures.srinivasan@gmail.com)
-* [Facebook page](https://www.facebook.com/loopersketch/)
-
 ![Looper banner](http://www.sureskumar.com/looper/github_imgs/banner.jpg)
 ## Features
 
@@ -63,6 +57,12 @@ Selected group or layer can be moved Horizontally, Vertically and Diagonally wit
 Duplicate the selected group or layer to form a grid. Number of columns, rows, horizontal margin and vertical margin can be manipulated. You can also alter other properties like opacity, rotate and scale to the grid elements.
 
 <a target="_blank" href="https://www.youtube.com/channel/UCzm9iVAvS9rVn5ZyZSbrIVQ">Demo videos</a>
+
+## Want to say thanks? Share your work!
+#### Please share what you create in one of the channels below. Cheers!
+* Twitter: #builtwithlooper and/or @sketchlooper
+* [Email](mailto:sures.srinivasan@gmail.com)
+* [Facebook page](https://www.facebook.com/loopersketch/)
 
 ## Examples
 ![Looper sample](http://www.sureskumar.com/looper/github_imgs/looper_example_16_exp.jpg)
