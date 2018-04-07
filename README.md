@@ -7,12 +7,6 @@ Looper is a sketch plugin that helps automate duplication of groups and layers. 
 </a>
 
 
-
-<a target="_blank" href="https://www.youtube.com/channel/UCzm9iVAvS9rVn5ZyZSbrIVQ/videos">
-	<img target="_blank" src="http://www.sureskumar.com/looper/github_imgs/looper_2.gif">
-</a>
-
-
 ## Installation
 
 #### Recommended
@@ -58,6 +52,12 @@ Selected group or layer can be moved Horizontally, Vertically and Diagonally wit
 Duplicate the selected group or layer to form a grid. Number of columns, rows, horizontal margin and vertical margin can be manipulated. You can also alter other properties like opacity, rotate and scale to the grid elements.
 
 <a target="_blank" href="https://www.youtube.com/channel/UCzm9iVAvS9rVn5ZyZSbrIVQ">Demo videos</a>
+
+#### 
+
+<a target="_blank" href="https://www.youtube.com/channel/UCzm9iVAvS9rVn5ZyZSbrIVQ/videos">
+	<img target="_blank" src="http://www.sureskumar.com/looper/github_imgs/looper_2.gif">
+</a>
 
 ## Want to say thanks? Share your work!
 #### Please share what you create in one of the channels below. Cheers!
