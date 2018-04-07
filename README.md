@@ -6,11 +6,6 @@ Looper is a sketch plugin that helps automate duplication of groups and layers. 
 	<img target="_blank" src="http://www.sureskumar.com/looper/github_imgs/looper.gif">
 </a>
 
-<a target="_blank" href="https://www.youtube.com/channel/UCzm9iVAvS9rVn5ZyZSbrIVQ/videos">Tutorials and Demo videos in Youtube</a>
-
-<a target="_blank" href="https://www.toptal.com/designers/sketch/amazing-illustrations-with-sketch-and-looper#comment-3446034970">Excellent Tutorial by Wojciech Dobry, Toptal (English)</a>
-
-<a target="_blank" href="https://www.jianshu.com/p/094d3e742de3">Tutorial by Jianshu (Chinese)</a>
 
 <a target="_blank" href="https://www.youtube.com/channel/UCzm9iVAvS9rVn5ZyZSbrIVQ/videos">
 	<img target="_blank" src="http://www.sureskumar.com/looper/github_imgs/looper_2.gif">
@@ -29,6 +24,14 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 1. [Download the ZIP file of this repository](https://github.com/sureskumar/Looper/archive/master.zip)
 2. Double click on `Looper.sketchplugin`
 
+
+## Tutorials
+
+<a target="_blank" href="https://www.youtube.com/channel/UCzm9iVAvS9rVn5ZyZSbrIVQ/videos">Tutorials and Demo videos in Youtube</a>
+
+<a target="_blank" href="https://www.toptal.com/designers/sketch/amazing-illustrations-with-sketch-and-looper#comment-3446034970">Excellent Tutorial by Wojciech Dobry, Toptal (English)</a>
+
+<a target="_blank" href="https://www.jianshu.com/p/094d3e742de3">Tutorial by Jianshu (Chinese)</a>
 
 ## Want to say thanks? Share your work!
 #### Please share what you create in one of the channels below. Cheers!
