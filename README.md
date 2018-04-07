@@ -140,15 +140,6 @@ Duplicate the selected group or layer to form a grid. Number of columns, rows, h
 #### Move (horizontal + vertical)
 ![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_28.jpg)
 
-## Change log
-
-#### version 2.0.0
-
-* **Preview mode**: Introduced preview mode so that the values can be tweaked realtime.
-* **Lighter and tigher UI**: will fit in all small screen sizes.
-* Improved performance
-* Bug fixes
-
 
 ## Thanks
 
