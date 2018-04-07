@@ -415,7 +415,7 @@ MD.extend({
       MD.superDebug("position", position);
       //sendEvent(MD.context, 'Parameter: position', position);
 
-      position_inc = MD.configs.table.send_move_inc;
+      position_inc = parseFloat(MD.configs.table.send_move_inc);
       MD.superDebug("position_inc", position_inc);
 
       position_rnd_x = MD.configs.table.send_move_rnd_x;
@@ -427,17 +427,21 @@ MD.extend({
 
       // GRID
       grid_x = Math.floor(MD.configs.table.send_grid_c);
+      //grid_x = MD.configs.table.send_grid_c;
       if(grid_x < 1) { grid_x = 1; }
       MD.superDebug("grid_x", grid_x);
       
       grid_y = Math.floor(MD.configs.table.send_grid_r);
+      //grid_y = MD.configs.table.send_grid_r;
       if(grid_y < 1) { grid_y = 1; }
       MD.superDebug("grid_y", grid_y);
 
-      position_grid_x_inc = Math.floor(MD.configs.table.send_grid_x);
+      //position_grid_x_inc = Math.floor(MD.configs.table.send_grid_x);
+      position_grid_x_inc = parseFloat(MD.configs.table.send_grid_x);
       MD.superDebug("position_grid_x_inc", position_grid_x_inc);
 
-      position_grid_y_inc = Math.floor(MD.configs.table.send_grid_y);
+      //position_grid_y_inc = Math.floor(MD.configs.table.send_grid_y);
+      position_grid_y_inc = parseFloat(MD.configs.table.send_grid_y);
       MD.superDebug("position_grid_y_inc", position_grid_y_inc);
 
       // SCALE
@@ -655,18 +659,18 @@ MD.extend({
                   break;
               case 2:
                   //Horizontal
-                  newXPos = oldXPos + Math.floor(position_inc);
+                  newXPos = oldXPos + position_inc;
                   newYPos = Math.round(oldYPos - ((newHeight - oldHeight) / 2));
                   break;
                 case 3:
                   //Vertical
                   newXPos = Math.round(oldXPos - ((newWidth - oldWidth) / 2));
-                  newYPos = oldYPos + Math.floor(position_inc);
+                  newYPos = oldYPos + position_inc;
                   break;
                 case 4:
                   //Diagonal
-                  newXPos = oldXPos + Math.floor(position_inc);
-                  newYPos = oldYPos + Math.floor(position_inc);
+                  newXPos = oldXPos + position_inc;
+                  newYPos = oldYPos + position_inc;
                   break;
                 case 5:
                   //Random
@@ -678,12 +682,15 @@ MD.extend({
                   grid_row_count = grid_row_count + 1;
                   if(grid_row_count >= grid_x) {
                     grid_row_count = 0;
-                    newXPos = Math.round(grid_old_x - ((newWidth - oldWidth) / 2));
+                    //newXPos = Math.round(grid_old_x - ((newWidth - oldWidth) / 2));
+                    newXPos = grid_old_x - ((newWidth - oldWidth) / 2);
                     newYPos = grid_old_y + position_grid_y_inc;
                     grid_old_y = newYPos;
                   } else {
-                    newXPos = oldXPos + Math.floor(position_grid_x_inc);
-                    newYPos = Math.round(oldYPos - ((newHeight - oldHeight) / 2));
+                    //newXPos = oldXPos + Math.floor(position_grid_x_inc);
+                    newXPos = oldXPos + position_grid_x_inc;
+                    //newYPos = Math.round(oldYPos - ((newHeight - oldHeight) / 2));
+                    newYPos = oldYPos - ((newHeight - oldHeight) / 2);
                   }
                   break;
           }
