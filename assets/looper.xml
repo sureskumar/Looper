@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Looper sketch plugin</title>
+    <link>http://www.sureskumar.com/looper/looper.xml</link>
+    <description>Looper is a sketch plugin that helps automate duplication of groups and layers.</description>
+    <language>en</language>
+      <item>
+        <title>Version 1.0</title>
+        <description>
+          <![CDATA[
+            <ul>
+              <li>Public launch v1.0</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Sat, 08 Apr 2017 11:49:11 +0000</pubDate>
+        <enclosure url="https://github.com/sureskumar/Looper/archive/48287863a554802b416e592e6adae85eb8a5b2f6.zip" sparkle:version="1.0" length="2017257" type="application/octet-stream" />
+      </item>
+      <item>
+        <title>Version 2.0</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Major update v2.0</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Mon, 01 May 2017 11:58:00 +0000</pubDate>
+        <enclosure url="https://github.com/sureskumar/Looper/archive/c46d6adadf33bce2d2da5f76b3374141dca2c02a.zip" sparkle:version="2.0" length="1697366" type="application/octet-stream" />
+      </item>
+      <item>
+        <title>Version 2.1</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Adding keyboard shortcuts v2.1</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Mon, 22 May 2017 11:58:00 +0000</pubDate>
+        <enclosure url="https://github.com/sureskumar/Looper/archive/63c40f4762c31c9c7fc31c6f08b95718e79bae71.zip" sparkle:version="2.1" length="1696311" type="application/octet-stream" />
+      </item>
+      <item>
+        <title>Version 2.2</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Adding sketch auto update feature v2.2</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Sun, 04 Jun 2017 10:58:00 +0000</pubDate>
+        <enclosure url="https://github.com/sureskumar/Looper/archive/6b19a1e12b24cf95cae0fcc6bdaab9613a0af808.zip" sparkle:version="2.2" length="1696330" type="application/octet-stream" />
+      </item>
+      <item>
+        <title>Version 2.4</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Adding cancel button and proportional scaling v2.4</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Thu, 15 Jun 2017 11:58:00 +0000</pubDate>
+        <enclosure url="https://github.com/sureskumar/Looper/archive/df193b3aaa573dafbbeaadc0f8ae4cfd7814d60c.zip" sparkle:version="2.4" length="58951" type="application/octet-stream" />
+      </item>
+      <item>
+        <title>Version 2.5</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Adding Google Analytics</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Wed, 21 Jun 2017 11:58:00 +0000</pubDate>
+        <enclosure url="https://github.com/sureskumar/Looper/archive/7e1278fb70d2cf79436ea27f387175b7895b71b7.zip" sparkle:version="2.5" length="310652" type="application/octet-stream" />
+      </item>
+      <item>
+        <title>Version 2.6</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Critical Bug Fixes</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Sat, 07 Apr 2018 11:00:00 +0000</pubDate>
+        <enclosure url="https://github.com/sureskumar/Looper/archive/f4a620c38326e59f2625bce822227e518bd1f2d3.zip" sparkle:version="2.6" length="308612" type="application/octet-stream" />
+      </item>
+      <item>
+        <title>Version 2.7</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Adding Decimal (Float) Support</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Sat, 07 Apr 2018 11:30:00 +0000</pubDate>
+        <enclosure url="https://github.com/sureskumar/Looper/archive/8b9c69aad42dceb7211d4cbce090c438e7901345.zip" sparkle:version="2.7" length="308668" type="application/octet-stream" />
+      </item>
+      <item>
+        <title>Version 2.8</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Adding Decimal (Float) Support</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Fri, 03 Aug 2018 11:30:00 +0000</pubDate>
+        <enclosure url="https://github.com/sureskumar/Looper/releases/download/v2.8/Looper.sketchplugin.zip" sparkle:version="2.8" length="305861" type="application/octet-stream" />
+      </item>
+  </channel>
+</rss>

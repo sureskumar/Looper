@@ -1,9 +1,9 @@
-# Looper v2.7 `⌘ + L`
+# Looper v2.8 `⌘ + L`
 
 Looper is a sketch plugin that helps automate duplication of groups and layers. One can control properties like Rotate, Scale and Opacity while duplicating. This powerful combination enables artists and designers to create interesting geometric and organic patterns.
 
 <a target="_blank" href="https://www.youtube.com/channel/UCzm9iVAvS9rVn5ZyZSbrIVQ/videos">
-	<img target="_blank" src="http://www.sureskumar.com/looper/github_imgs/looper.gif">
+	<img target="_blank" src="https://github.com/sureskumar/Looper/raw/master/assets/looper.gif">
 </a>
 
 
@@ -16,7 +16,7 @@ Looper is a sketch plugin that helps automate duplication of groups and layers. 
 
 Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 
-1. [Download the ZIP file of this repository](https://github.com/sureskumar/Looper/archive/master.zip)
+1. [Download the ZIP file of this repository](https://github.com/sureskumar/Looper/releases/download/v2.8/Looper.sketchplugin.zip)
 2. Double click on `Looper.sketchplugin`
 
 
@@ -28,7 +28,7 @@ Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 
 <a target="_blank" href="https://www.jianshu.com/p/094d3e742de3">Tutorial by Jianshu (Chinese)</a>
 
-![Looper banner](http://www.sureskumar.com/looper/github_imgs/banner.jpg)
+![Looper banner](https://github.com/sureskumar/Looper/raw/master/assets/banner.jpg)
 ## Features
 
 ### Duplication count
@@ -54,7 +54,7 @@ Duplicate the selected group or layer to form a grid. Number of columns, rows, h
 #### 
 
 <a target="_blank" href="https://www.youtube.com/channel/UCzm9iVAvS9rVn5ZyZSbrIVQ/videos">
-	<img target="_blank" src="http://www.sureskumar.com/looper/github_imgs/looper_2.gif">
+	<img target="_blank" src="https://github.com/sureskumar/Looper/raw/master/assets/looper_2.gif">
 </a>
 
 #### 
@@ -68,77 +68,77 @@ Duplicate the selected group or layer to form a grid. Number of columns, rows, h
 * [Facebook page](https://www.facebook.com/loopersketch/)
 
 ## Examples
-![Looper sample](http://www.sureskumar.com/looper/github_imgs/looper_example_16_exp.jpg)
+![Looper sample](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_16_exp.jpg)
 
 #### Rotate (linear) 
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_18.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_25.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_10.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_26.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_18.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_25.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_10.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_26.jpg)
 
 #### Rotate (random)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_04.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_03.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_04.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_03.jpg)
 
 #### Rotate (linear) + Opacity (random)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_11.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_31.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_13.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_11.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_31.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_13.jpg)
 
 #### Rotate (linear) + Scale (linear)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_22.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_34.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_22.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_34.jpg)
 
 #### Rotate (linear) + Scale (sinusoidal)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_06.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_05.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_12.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_06.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_05.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_12.jpg)
 
 #### Rotate (random) + Scale (random)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_19.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_19.jpg)
 
 #### Rotate (sinusoidal) + Scale (sinusoidal)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_20.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_20.jpg)
 
 #### Rotate (sinusoidal) + Scale (sinusoidal) + Opacity (random)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_14.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_14.jpg)
 
 #### Rotate (sinusoidal) + Scale (linear) + Opacity (Fade to 0)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_16.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_23.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_16.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_23.jpg)
 
 #### Rotate (linear) + Scale (linear) + Opacity (Fade to 0)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_01.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_01.jpg)
 
 #### Rotate (random) + Scale (random) + Opacity (random)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_29.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_29.jpg)
 
 #### Rotate (linear) + Scale (sinusoidal) + Opacity (random)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_33.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_27.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_32.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_33.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_27.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_32.jpg)
 
 #### Rotate (linear) + Move (horizontal)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_07.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_07.jpg)
 
 #### Rotate (linear) + Move (vertical)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_08.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_08.jpg)
 
 #### Rotate (linear) + Move (diagonal)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_09.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_09.jpg)
 
 #### Rotate (random) + Move (random) + Opacity (random)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_17.jpg)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_24.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_17.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_24.jpg)
 
 #### Move (vertical) + Opacity (Fade to 0)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_15.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_15.jpg)
 
 #### Move (vertical) + Scale (linear) + Opacity (Fade to 0)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_21.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_21.jpg)
 
 #### Move (horizontal + vertical)
-![Looper example](http://www.sureskumar.com/looper/github_imgs/looper_example_28.jpg)
+![Looper example](https://github.com/sureskumar/Looper/raw/master/assets/looper_example_28.jpg)
 
 
 ## Thanks
