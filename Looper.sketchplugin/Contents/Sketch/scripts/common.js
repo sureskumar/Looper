@@ -98,7 +98,8 @@ MD.extend({
 MD.extend({
   addShape: function () {
     var shape = MSRectangleShape.alloc().initWithFrame(NSMakeRect(0, 0, 100, 100));
-    return MSShapeGroup.shapeWithPath(shape);
+    //return MSShapeGroup.shapeWithPath(shape);
+    return shape;
   },
   removeLayer: function (layer) {
     var container = layer.parentGroup();

@@ -113,5 +113,17 @@
         <pubDate>Fri, 03 Aug 2018 11:30:00 +0000</pubDate>
         <enclosure url="https://github.com/sureskumar/Looper/releases/download/v2.8/Looper.sketchplugin.zip" sparkle:version="2.8" length="305861" type="application/octet-stream" />
       </item>
+      <item>
+        <title>Version 2.9</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Bug Fixes to work with Sketch 52</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Wed, 03 Oct 2018 10:00:00 +0000</pubDate>
+        <enclosure url="https://github.com/sureskumar/Looper/releases/download/v2.9/Looper.sketchplugin.zip" sparkle:version="2.9" length="318529" type="application/octet-stream" />
+      </item>
   </channel>
 </rss>
