@@ -131,6 +131,10 @@ html {
   margin-top: 6px;
   margin-bottom: 8px;
 }
+.ui_dropdown_1 {
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
 .ui1 {
  margin-top: 8px; 
 }
@@ -139,6 +143,12 @@ html {
 }
 .fl_cor {
   margin-top: 7px;
+}
+.fl_cor_1 {
+  margin-top: 12px;
+}
+.fl_cor_2 {
+  margin-top: 2px;
 }
 .fr {
   float: right;

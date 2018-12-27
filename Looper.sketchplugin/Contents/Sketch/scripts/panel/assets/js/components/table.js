@@ -20,6 +20,7 @@
     send_grid_x,
     send_grid_y,
     send_scale,
+    send_scale_dir,
     send_scale_px,
     send_scale_pr,
     send_scale_rnd;
@@ -70,6 +71,7 @@
     move_rnd_y,
     scale_selection,
     scale_perf,
+    scale_dir,
     scale_px,
     scale_pr,
     scale_rnd;
@@ -130,6 +132,9 @@
 
     scale_perf = $('#input_scale_dropdown').val().trim(); 
     _looperDebug("scale_perf", scale_perf);
+
+    scale_dir = $('#input_scale_dir_dropdown').val().trim(); 
+    _looperDebug("scale_dir", scale_dir);
 
     scale_px = $('#input_scale_txt_1').val().trim(); 
     _looperDebug("scale_px", scale_px);
@@ -258,10 +263,25 @@
                       options.send_scale = 1;
                       break;
               }
+              
           } else {
               options.send_scale = 0;
               options.send_scale_inc = scale_px;
           }
+
+          switch(scale_dir) {
+              case "both":
+                  options.send_scale_dir = 0;
+                  break;
+              case "x":
+                  options.send_scale_dir = 1;
+                  break;
+              case "y":
+                  options.send_scale_dir = 2;
+                  break;
+          }
+          _looperDebug("options.send_scale_dir", options.send_scale_dir);
+
 
           options.send_scale_px = scale_px;
           options.send_scale_pr = scale_pr;
@@ -572,6 +592,7 @@
       // Scale
       _onChangeTrigger("#input_scale_toggle");
       _onChangeTrigger("#input_scale_dropdown");
+      _onChangeTrigger("#input_scale_dir_dropdown");
 
       // Move
       _onChangeTrigger("#input_move_toggle");

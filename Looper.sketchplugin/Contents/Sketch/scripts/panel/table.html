@@ -17,9 +17,9 @@
                     <div class="form-field-label" >Duplication count</div>
                     <div id="input_count_txt_div">
                       <label class="fl fl_cor">Number of copies</label>
-                      <input type="text" id="input_count_txt" value="50" size="5" class="ui_txt fr">
+                      <input type="text" id="input_count_txt" value="5" size="5" class="ui_txt fr">
                     </div>
-                    <span class="recom">Recommended range: 1-1000</span>
+                    <span class="recom">* total number of layers</span>
               </div>
 
               <div class="form_cont">
@@ -31,8 +31,17 @@
                     <div id="input_scale_controls">
 
                         <div class="ui1">
-                            <label class="fl fl_cor">Increment in</label>
-                            <select id="input_scale_dropdown" class="ui_dropdown fr">
+                            <label class="fl fl_cor">Direction</label>
+                            <select id="input_scale_dir_dropdown" class="ui_dropdown fr">
+                              <option value="both">X and Y</option>
+                              <option value="x">X only</option>
+                              <option value="y">Y only</option>
+                            </select>
+                        </div>
+
+                        <div class="ui1">
+                            <label class="fl fl_cor_1">Increment in</label>
+                            <select id="input_scale_dropdown" class="ui_dropdown_1 fr">
                               <option value="Pixels">Pixels</option>
                               <option value="Percentage">Percentage</option>
                               <option value="Randomly">Randomly</option>
@@ -40,7 +49,7 @@
                         </div>
 
                         <div id="input_scale_txt_1_div" class="ui1 fl_cor">
-                            <label class="fl">Increment by <span class="grey_txt">(px)</span></label><br/>
+                            <label class="fl fl_cor_2">Increment by <span class="grey_txt">(px)</span></label><br/>
                             <input type="text" id="input_scale_txt_1" value="5" size="5" class="fr">
                             <span class="recom">Recommended range: 5-20</span>
                         </div>
@@ -87,7 +96,7 @@
 
                         <div id="input_move_txt_1_div" class="ui1">
                             <div>
-                              <label class="fl">Increment by <span class="grey_txt">(px)</span></label>
+                              <label class="fl fl_cor_2">Increment by <span class="grey_txt">(px)</span></label>
                               <input type="text" id="input_move_txt_1" value="20" size="5" class="fr">
                             </div>
                             <span class="recom">Recommended range: 1-500</span>
@@ -106,6 +115,26 @@
                     </div>
               </div>
                   
+
+
+
+
+              
+
+
+
+
+            
+              
+            </div>
+          </div>
+        </div>
+ 
+        <div class="settings-panel1">
+          <div class="block">
+            <div class="block__content">
+
+
 
 
 
@@ -141,15 +170,8 @@
 
 
 
-            
-              
-            </div>
-          </div>
-        </div>
- 
-        <div class="settings-panel1">
-          <div class="block">
-            <div class="block__content">
+
+
                   <div class="form-field form_cont">
                         <div class="form-field-label-new">
                           <input class="chcBox" type="checkbox" id="input_angle_checkbox_1" checked>

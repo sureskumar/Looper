@@ -125,5 +125,17 @@
         <pubDate>Wed, 03 Oct 2018 10:00:00 +0000</pubDate>
         <enclosure url="https://github.com/sureskumar/Looper/releases/download/v2.9/Looper.sketchplugin.zip" sparkle:version="2.9" length="318529" type="application/octet-stream" />
       </item>
+      <item>
+        <title>Version 3.0</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Adding independent Scaling in X and Y axis</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Wed, 26 Dec 2018 10:00:00 +0000</pubDate>
+        <enclosure url="https://github.com/sureskumar/Looper/releases/download/v3.0/Looper.sketchplugin.zip" sparkle:version="3.0" length="307518" type="application/octet-stream" />
+      </item>
   </channel>
 </rss>

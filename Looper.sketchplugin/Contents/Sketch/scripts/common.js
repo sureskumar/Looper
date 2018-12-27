@@ -303,7 +303,7 @@ MD.extend({
     return this.MDPanel({
       url: this.pluginSketch + "/panel/table.html",
       width: 473,
-      height: 495,
+      height: 540,
       data: data,
       identifier: 'com.google.material.pattern',
       floatWindow: false,
@@ -370,6 +370,7 @@ MD.extend({
       rotate_select,
       opacity,
       scale,
+      scale_dir,
       scale_px,
       scale_pr,
       scale_rnd,
@@ -450,6 +451,9 @@ MD.extend({
       MD.superDebug("scale", scale);
       //sendEvent(MD.context, 'Parameter: scale', scale);
 
+      scale_dir = MD.configs.table.send_scale_dir;
+      MD.superDebug("scale_dir", scale_dir);
+
       scale_px = MD.configs.table.send_scale_px;
       MD.superDebug("scale_px", scale_px);
 
@@ -507,18 +511,24 @@ MD.extend({
       var layerName = layer.name();
       MD.superDebug("ori_layer_name", ori_layer_name);
       if(!ori_layer_name) {
-        ori_layer_name = "original_" + layerName + "_" + Math.floor(Math.random() * 100000000);
+        //ori_layer_name = "original_" + layerName + "_" + Math.floor(Math.random() * 100000000);
+        //ori_layer_name = layerName + "_original";
+        ori_layer_name = layerName;
       }
       layer.setName(ori_layer_name);
 
       // Create a group
       groupLayer = MSLayerGroup.new();
-      groupLayer.setName(layerName + " Group");
+      groupLayer.setName(layerName + "_looper");
+
+      // Add original to the group
+      //MD.current.removeLayer(layer);
+      //groupLayer.addLayers([layer]);
 
       // Duplicate just the first copy
       layer.duplicate();
       layer.setIsVisible(1);
-      layer.setName("duplicate_1_" + layerName);
+      layer.setName(layerName + "_1");
 
       // Add it to the group
       MD.current.removeLayer(layer);
@@ -561,7 +571,7 @@ MD.extend({
           if(loop > 1) {
             layer.duplicate();
             tempCount = j+2;
-            layer.setName("duplicate_" + tempCount + "_" + layerName);
+            layer.setName(layerName + "_" + tempCount);
           }
           MD.superDebug("tempCount", tempCount, 0);
 
@@ -621,24 +631,72 @@ MD.extend({
                   var r_temp = Math.floor(Math.random() * scale_rnd);
                   MD.superDebug("r_temp", r_temp, 0);
                   if(Math.random() > 0.5) {
-                    newWidth = Math.floor(grid_old_w + r_temp);
-                    newHeight = Math.floor(grid_old_h + r_temp);
+                    switch(scale_dir) {
+                        case 0:
+                            newWidth = Math.floor(grid_old_w + r_temp);
+                            newHeight = Math.floor(grid_old_h + r_temp);
+                            break;
+                        case 1:
+                            newWidth = Math.floor(grid_old_w + r_temp);
+                            newHeight = oldHeight;
+                            break;
+                        case 2:
+                            newWidth = oldWidth;
+                            newHeight = Math.floor(grid_old_h + r_temp);
+                            break;
+                    }
                   } else {
-                    newWidth = Math.floor(grid_old_w - r_temp);
-                    newHeight = Math.floor(grid_old_h - r_temp);
+                    switch(scale_dir) {
+                        case 0:
+                            newWidth = Math.floor(grid_old_w - r_temp);
+                            newHeight = Math.floor(grid_old_h - r_temp);
+                            break;
+                        case 1:
+                            newWidth = Math.floor(grid_old_w - r_temp);
+                            newHeight = oldHeight;
+                            break;
+                        case 2:
+                            newWidth = oldWidth;
+                            newHeight = Math.floor(grid_old_h - r_temp);
+                            break;
+                    }
                   }
                   break;
               case 2:
                   //Scale PX
-                  newWidth = Math.floor(oldWidth) + Math.floor(scale_px);
-                  var scale_ratio = newWidth / oldWidth;
-                  MD.superDebug("scale_ratio", scale_ratio, 0);
-                  newHeight = Math.floor(oldHeight) * scale_ratio;
+                  switch(scale_dir) {
+                      case 0:
+                          newWidth = Math.floor(oldWidth) + Math.floor(scale_px);
+                          var scale_ratio = newWidth / oldWidth;
+                          MD.superDebug("scale_ratio", scale_ratio, 0);
+                          newHeight = Math.floor(oldHeight) * scale_ratio;
+                          break;
+                      case 1:
+                          newWidth = Math.floor(oldWidth) + Math.floor(scale_px);
+                          newHeight = oldHeight;
+                          break;
+                      case 2:
+                          newWidth = oldWidth;
+                          newHeight = Math.round(oldHeight) + Math.floor(scale_px);
+                          break;
+                  }
                   break;
               case 3:
                   //Scale Percentage
-                  newWidth = Math.round(oldWidth * (scale_pr / 100));
-                  newHeight = Math.round(oldHeight * (scale_pr / 100));
+                  switch(scale_dir) {
+                      case 0:
+                          newWidth = Math.round(oldWidth * (scale_pr / 100));
+                          newHeight = Math.round(oldHeight * (scale_pr / 100));
+                          break;
+                      case 1:
+                          newWidth = Math.round(oldWidth * (scale_pr / 100));
+                          newHeight = oldHeight;
+                          break;
+                      case 2:
+                          newWidth = oldWidth;
+                          newHeight = Math.round(oldHeight * (scale_pr / 100));
+                          break;
+                  }
                   break;
           }
 
@@ -707,20 +765,24 @@ MD.extend({
       }
 
       // Create a parent group called 'Looper_Group'
-      groupLayer1 = MSLayerGroup.new();
-      MD.current.addLayers([groupLayer1]);
-      groupLayer1.setName("Looper_Group");
+      //groupLayer1 = MSLayerGroup.new();
+      //MD.current.addLayers([groupLayer1]);
+      //groupLayer1.setName("Looper_Group");
       
+      // Add group to Canvas
+      MD.current.addLayers([groupLayer]);
+
       // Remember the group's ID
-      created_looper_group = groupLayer1.objectID();
+      created_looper_group = groupLayer.objectID();
       
+
       // Add child group and settings text to parent group 'Looper_Group'
-      MD.current.removeLayer(groupLayer);
-      groupLayer1.addLayers([groupLayer]);
+      //MD.current.removeLayer(groupLayer);
+      //groupLayer1.addLayers([groupLayer]);
 
       // Resize group to fit all children
       groupLayer.resizeToFitChildrenWithOption(0);
-      groupLayer1.resizeToFitChildrenWithOption(0);
+      //groupLayer1.resizeToFitChildrenWithOption(0);
 
       MD.superDebug("- - runLooper function completed - -");
       
