@@ -137,5 +137,17 @@
         <pubDate>Wed, 26 Dec 2018 10:00:00 +0000</pubDate>
         <enclosure url="https://github.com/sureskumar/Looper/releases/download/v3.0/Looper.sketchplugin.zip" sparkle:version="3.0" length="307518" type="application/octet-stream" />
       </item>
+      <item>
+        <title>Version 3.1</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Bug Fixes to work for Sketch 53</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Fri, 08 Feb 2019 10:00:00 +0000</pubDate>
+        <enclosure url="https://github.com/sureskumar/Looper/releases/download/v3.1/Looper.sketchplugin.zip" sparkle:version="3.1" length="316788" type="application/octet-stream" />
+      </item>
   </channel>
 </rss>

@@ -781,8 +781,15 @@ MD.extend({
       //groupLayer1.addLayers([groupLayer]);
 
       // Resize group to fit all children
-      groupLayer.resizeToFitChildrenWithOption(0);
+      //groupLayer.resizeToFitChildrenWithOption(0);
       //groupLayer1.resizeToFitChildrenWithOption(0);
+
+      if (MSApplicationMetadata.metadata().appVersion >= 53) {
+        groupLayer.fixGeometryWithOptions(1);
+      } else {
+        groupLayer.resizeToFitChildrenWithOption(0);
+      }
+
 
       MD.superDebug("- - runLooper function completed - -");
       

@@ -16,7 +16,7 @@ Looper is a sketch plugin that helps automate duplication of groups and layers. 
 
 Make sure you have the latest version of Sketch installed. **(Sketch 40+)**
 
-1. [Download the ZIP file of this repository](https://github.com/sureskumar/Looper/releases/download/v2.8/Looper.sketchplugin.zip)
+1. [Download the ZIP file of this repository](https://github.com/sureskumar/Looper/releases/download/v3.1/Looper.sketchplugin.zip)
 2. Double click on `Looper.sketchplugin`
 
 
