@@ -156,4 +156,4 @@ Feel free to contact me for any suggestions or critique.
 
 ## Links
 
-[Looper website](http://www.sureskumar.com/looper) | [My portfolio](http://www.sureskumar.com) | [Twitter](https://twitter.com/sureskumar)
+[Looper website](http://looper.sureskumar.com/) | [My portfolio](http://www.sureskumar.com) | [Twitter](https://twitter.com/sureskumar)

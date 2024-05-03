@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>Looper sketch plugin</title>
-    <link>http://www.sureskumar.com/looper/looper.xml</link>
+    <link>https://github.com/sureskumar/Looper/raw/master/assets/looper.xml</link>
     <description>Looper is a sketch plugin that helps automate duplication of groups and layers.</description>
     <language>en</language>
       <item>
